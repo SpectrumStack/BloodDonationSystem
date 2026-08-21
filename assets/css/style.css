@@ -1,0 +1,1540 @@
+/*======================================================
+            GOOGLE FONT
+======================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+
+/*======================================================
+                ROOT COLORS
+======================================================*/
+
+:root{
+
+    --primary:#dc3545;
+
+    --primary-dark:#bb2d3b;
+
+    --secondary:#f8f9fa;
+
+    --dark:#212529;
+
+    --white:#ffffff;
+
+    --gray:#6c757d;
+
+    --light:#f5f7fa;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --transition:.4s;
+
+}
+
+
+/*======================================================
+                RESET
+======================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#fff;
+
+    color:#222;
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+
+}
+
+
+/*======================================================
+                LINKS
+======================================================*/
+
+a{
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+ul{
+
+    list-style:none;
+
+}
+
+
+/*======================================================
+                NAVBAR
+======================================================*/
+
+.navbar{
+
+    padding:18px 0;
+
+    transition:.4s;
+
+    background:rgba(220,53,69,.95)!important;
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+.navbar-brand{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+
+.navbar-brand i{
+
+    margin-right:6px;
+
+}
+
+
+.navbar-nav .nav-link{
+
+    color:white!important;
+
+    font-weight:500;
+
+    margin-left:18px;
+
+    position:relative;
+
+}
+
+
+.navbar-nav .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:white;
+
+    transition:.4s;
+
+}
+
+
+.navbar-nav .nav-link:hover::after{
+
+    width:100%;
+
+}
+
+
+.navbar .btn{
+
+    border-radius:40px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+.navbar .btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/*======================================================
+                HERO
+======================================================*/
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(rgba(0,0,0,.55),
+
+    rgba(0,0,0,.60)),
+
+    url("../images/hero-bg.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+    padding:120px 0;
+
+}
+
+
+.hero h1{
+
+    font-size:58px;
+
+    font-weight:800;
+
+    line-height:1.2;
+
+}
+
+
+.hero p{
+
+    font-size:18px;
+
+    max-width:620px;
+
+}
+
+
+.hero .badge{
+
+    font-size:15px;
+
+    border-radius:30px;
+
+}
+
+
+.hero-img{
+
+    max-width:95%;
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+
+
+/*======================================================
+            HERO BUTTONS
+======================================================*/
+
+.btn-danger{
+
+    background:var(--primary);
+
+    border:none;
+
+    border-radius:50px;
+
+    padding:14px 34px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+
+.btn-danger:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(220,53,69,.3);
+
+}
+
+
+.btn-light{
+
+    border-radius:50px;
+
+    padding:14px 34px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+
+.btn-light:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+.btn-outline-light{
+
+    border-radius:50px;
+
+    padding:14px 34px;
+
+    transition:.35s;
+
+}
+
+
+.btn-outline-light:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/*======================================================
+            HERO COUNTER
+======================================================*/
+
+.hero h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+
+.hero .col-4 p{
+
+    opacity:.9;
+
+}
+
+
+
+/*======================================================
+            FLOAT ANIMATION
+======================================================*/
+
+@keyframes float{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/*======================================================
+            SECTION TITLE
+======================================================*/
+
+section{
+
+    padding:80px 0;
+
+}
+
+
+section h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+
+section p{
+
+    color:#666;
+
+}
+
+/*======================================================
+                SEARCH SECTION
+======================================================*/
+
+.form-control,
+.form-select{
+
+    height:55px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    box-shadow:none;
+
+    transition:.3s;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 0 .2rem rgba(220,53,69,.15);
+
+}
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    box-shadow:var(--shadow);
+
+    transition:all .35s ease;
+
+    overflow:hidden;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+/*======================================================
+                FEATURE SECTION
+======================================================*/
+
+.display-4 i{
+
+    color:var(--primary);
+
+    transition:.3s;
+
+}
+
+.card:hover .display-4 i{
+
+    transform:scale(1.15) rotate(5deg);
+
+}
+
+.card h4{
+
+    font-weight:700;
+
+    margin-top:10px;
+
+}
+
+.card p{
+
+    font-size:15px;
+
+    color:#666;
+
+}
+
+
+
+/*======================================================
+                STATISTICS
+======================================================*/
+
+.bg-danger{
+
+    background:linear-gradient(135deg,#dc3545,#c82333)!important;
+
+}
+
+.bg-danger h1{
+
+    font-size:52px;
+
+    font-weight:700;
+
+}
+
+.bg-danger p{
+
+    color:#fff;
+
+    opacity:.95;
+
+}
+
+
+
+/*======================================================
+                HOW IT WORKS
+======================================================*/
+
+.card .display-5{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#ffe5e8;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.card:hover .display-5{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    transform:rotate(360deg);
+
+}
+
+.card h5{
+
+    font-weight:600;
+
+}
+
+
+
+/*======================================================
+                BADGES
+======================================================*/
+
+.badge{
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+/*======================================================
+                CARD IMAGE
+======================================================*/
+
+.card img{
+
+    transition:.5s;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+
+/*======================================================
+                GENERAL BUTTON
+======================================================*/
+
+.btn{
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/*======================================================
+                HOVER EFFECT
+======================================================*/
+
+.shadow-lg{
+
+    transition:.35s;
+
+}
+
+.shadow-lg:hover{
+
+    box-shadow:0 25px 50px rgba(0,0,0,.18)!important;
+
+}
+
+
+
+/*======================================================
+                GLASS CARD
+======================================================*/
+
+.glass{
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+}
+
+
+
+/*======================================================
+                ICON COLOR
+======================================================*/
+
+.bi{
+
+    transition:.3s;
+
+}
+
+.card:hover .bi{
+
+    color:var(--primary);
+
+}
+
+
+
+/*======================================================
+                SPACING
+======================================================*/
+
+.py-5{
+
+    padding-top:90px!important;
+
+    padding-bottom:90px!important;
+
+}
+
+
+
+/*======================================================
+                SMOOTH ANIMATION
+======================================================*/
+
+.card,
+.btn,
+.form-control,
+.form-select{
+
+    transition:all .35s ease-in-out;
+
+}
+
+/*======================================================
+            UPCOMING BLOOD CAMP SECTION
+======================================================*/
+
+.card-img-top{
+
+    height:220px;
+
+    object-fit:cover;
+
+    transition:0.5s ease;
+
+}
+
+.card:hover .card-img-top{
+
+    transform:scale(1.08);
+
+}
+
+.card-body{
+
+    padding:25px;
+
+}
+
+.card-body h4{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.card-body p{
+
+    font-size:15px;
+
+    color:#666;
+
+}
+
+.card-body hr{
+
+    margin:20px 0;
+
+}
+
+.card-body i{
+
+    color:var(--primary);
+
+    margin-right:8px;
+
+}
+
+
+
+/*======================================================
+                EMERGENCY SECTION
+======================================================*/
+
+.emergency-section{
+
+    background:linear-gradient(135deg,#dc3545,#8b0000);
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.emergency-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    top:-120px;
+
+    right:-120px;
+
+}
+
+.emergency-section::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    bottom:-90px;
+
+    left:-90px;
+
+}
+
+.emergency-section h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.emergency-section p{
+
+    font-size:18px;
+
+    color:#fff !important;
+
+}
+
+.emergency-section .btn{
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    padding:15px 40px;
+
+}
+
+.emergency-section .btn:hover{
+
+    background:#fff;
+
+    color:#dc3545;
+
+}
+
+
+
+/*======================================================
+                TESTIMONIAL SECTION
+======================================================*/
+
+.rounded-circle{
+
+    object-fit:cover;
+
+}
+
+.text-warning{
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+}
+
+.testimonial-card{
+
+    transition:.4s;
+
+}
+
+.testimonial-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.card:hover .rounded-circle{
+
+    transform:scale(1.08);
+
+}
+
+
+
+/*======================================================
+                SUCCESS STORY
+======================================================*/
+
+.success-section img{
+
+    max-width:100%;
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+.success-section h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+}
+
+.success-section h3{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+.success-section .btn{
+
+    margin-top:20px;
+
+}
+
+
+
+/*======================================================
+                NEWSLETTER
+======================================================*/
+
+.input-group{
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.input-group input{
+
+    border:none;
+
+    height:60px;
+
+    padding-left:25px;
+
+    font-size:16px;
+
+}
+
+.input-group input:focus{
+
+    box-shadow:none;
+
+}
+
+.input-group .btn{
+
+    border-radius:0;
+
+    padding:0 35px;
+
+    font-weight:600;
+
+}
+
+
+
+/*======================================================
+                BADGE DESIGN
+======================================================*/
+
+.badge{
+
+    padding:10px 18px;
+
+    font-size:14px;
+
+}
+
+
+
+/*======================================================
+                IMAGE HOVER
+======================================================*/
+
+img{
+
+    transition:.5s;
+
+}
+
+img:hover{
+
+    transform:scale(1.02);
+
+}
+
+
+
+/*======================================================
+                SECTION BACKGROUND
+======================================================*/
+
+.bg-light{
+
+    background:#f8f9fa !important;
+
+}
+
+
+
+/*======================================================
+                GENERAL HOVER
+======================================================*/
+
+.card{
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+/*======================================================
+                FOOTER SECTION
+======================================================*/
+
+.footer{
+
+    background:#111827 !important;
+
+    color:#ddd;
+
+}
+
+
+.footer h3{
+
+    font-size:32px;
+
+    font-weight:700;
+
+}
+
+
+.footer h5{
+
+    color:#fff;
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+.footer p{
+
+    color:#bbb;
+
+    font-size:15px;
+
+}
+
+
+.footer ul li{
+
+    margin-bottom:12px;
+
+    color:#bbb;
+
+}
+
+
+.footer-link{
+
+    color:#bbb;
+
+    transition:.3s;
+
+}
+
+
+.footer-link:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+
+
+/*======================================================
+                SOCIAL ICONS
+======================================================*/
+
+.social-icon{
+
+    width:42px;
+
+    height:42px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#dc3545;
+
+    color:white;
+
+    border-radius:50%;
+
+    margin-right:8px;
+
+    font-size:18px;
+
+    transition:.35s;
+
+}
+
+
+.social-icon:hover{
+
+    background:white;
+
+    color:#dc3545;
+
+    transform:translateY(-6px);
+
+}
+
+
+
+/*======================================================
+            FLOATING EMERGENCY BUTTON
+======================================================*/
+
+.emergency-btn{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:90px;
+
+    width:65px;
+
+    height:65px;
+
+    background:#dc3545;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    z-index:999;
+
+    box-shadow:0 10px 25px rgba(220,53,69,.5);
+
+    animation:pulse 1.5s infinite;
+
+}
+
+
+.emergency-btn:hover{
+
+    background:#b02a37;
+
+    color:white;
+
+    transform:scale(1.1);
+
+}
+
+
+
+/*======================================================
+                BACK TO TOP BUTTON
+======================================================*/
+
+#topBtn{
+
+    display:none;
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:25px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    background:#fff;
+
+    color:#dc3545;
+
+    border-radius:50%;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    z-index:999;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+}
+
+
+#topBtn:hover{
+
+    background:#dc3545;
+
+    color:white;
+
+    transform:translateY(-5px);
+
+}
+
+
+
+/*======================================================
+                PULSE ANIMATION
+======================================================*/
+
+@keyframes pulse{
+
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,.7);
+
+    }
+
+
+    70%{
+
+        box-shadow:0 0 0 25px rgba(220,53,69,0);
+
+    }
+
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(220,53,69,0);
+
+    }
+
+
+}
+
+
+
+/*======================================================
+                SCROLL BAR
+======================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#f1f1f1;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:#dc3545;
+
+    border-radius:20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#b02a37;
+
+}
+
+
+
+/*======================================================
+                LOADING ANIMATION
+======================================================*/
+
+.fade-up{
+
+    animation:fadeUp 1s ease;
+
+}
+
+
+@keyframes fadeUp{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/*======================================================
+                RESPONSIVE DESIGN
+======================================================*/
+
+
+@media(max-width:992px){
+
+
+    .hero h1{
+
+        font-size:45px;
+
+    }
+
+
+    .hero{
+
+        text-align:center;
+
+    }
+
+
+    .hero p{
+
+        margin:auto;
+
+    }
+
+
+    .hero-img{
+
+        margin-top:40px;
+
+    }
+
+
+    .navbar-nav{
+
+        background:#dc3545;
+
+        padding:20px;
+
+        border-radius:15px;
+
+        margin-top:15px;
+
+    }
+
+
+    .navbar-nav .nav-link{
+
+        margin-left:0;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:768px){
+
+
+    section{
+
+        padding:60px 0;
+
+    }
+
+
+    section h2{
+
+        font-size:32px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:36px;
+
+    }
+
+
+    .hero h2{
+
+        font-size:30px;
+
+    }
+
+
+    .hero .btn{
+
+        display:block;
+
+        width:100%;
+
+        margin-bottom:15px;
+
+    }
+
+
+    .bg-danger h1{
+
+        font-size:38px;
+
+    }
+
+
+    .emergency-section h2{
+
+        font-size:32px;
+
+    }
+
+
+    .emergency-section{
+
+        text-align:center;
+
+    }
+
+
+    .footer{
+
+        text-align:center;
+
+    }
+
+
+    .social-icon{
+
+        margin:5px;
+
+    }
+
+
+    .emergency-btn{
+
+        width:55px;
+
+        height:55px;
+
+        right:20px;
+
+        bottom:80px;
+
+    }
+
+
+    #topBtn{
+
+        right:20px;
+
+    }
+
+
+}
+
+
+
+
+@media(max-width:480px){
+
+
+    .hero h1{
+
+        font-size:30px;
+
+    }
+
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+
+    .hero .row .col-4 h2{
+
+        font-size:25px;
+
+    }
+
+
+    .hero .row .col-4 p{
+
+        font-size:12px;
+
+    }
+
+
+}
