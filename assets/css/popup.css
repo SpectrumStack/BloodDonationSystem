@@ -1,0 +1,712 @@
+/* =========================================================
+   BLOODCARE
+   PROFESSIONAL POPUP / MODAL SYSTEM
+   ================================================= */
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.popup-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: rgba(15,23,42,0.55);
+
+    backdrop-filter: blur(4px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+
+.popup-overlay.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.popup-modal {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 30px 80px rgba(15,23,42,0.25);
+
+    transform: translateY(20px) scale(.97);
+
+    transition: transform .25s ease;
+}
+
+
+.popup-overlay.active .popup-modal {
+
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.popup-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.popup-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.popup-title-icon {
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 9px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+
+.popup-title h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 2px;
+}
+
+
+.popup-title p {
+
+    font-size: 8px;
+
+    color: var(--text-muted);
+}
+
+
+.popup-close {
+
+    width: 31px;
+
+    height: 31px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #f8fafc;
+
+    color: var(--text-muted);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.popup-close:hover {
+
+    background: #fef2f2;
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   MODAL BODY
+   ========================================================= */
+
+.popup-body {
+
+    padding: 22px;
+}
+
+
+/* =========================================================
+   MODAL FOOTER
+   ========================================================= */
+
+.popup-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    padding: 15px 20px;
+
+    border-top: 1px solid var(--border);
+
+    background: #fafbfc;
+}
+
+
+/* =========================================================
+   CONFIRMATION POPUP
+   ========================================================= */
+
+.confirm-popup {
+
+    max-width: 400px;
+
+    text-align: center;
+}
+
+
+.confirm-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 25px auto 15px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    background: #fef2f2;
+
+    color: var(--danger);
+}
+
+
+.confirm-popup h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+
+.confirm-popup p {
+
+    padding: 0 25px;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SUCCESS POPUP
+   ========================================================= */
+
+.success-popup {
+
+    max-width: 400px;
+
+    text-align: center;
+}
+
+
+.success-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 25px auto 15px;
+
+    border-radius: 50%;
+
+    background: #ecfdf5;
+
+    color: #059669;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+}
+
+
+.success-popup h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 7px;
+}
+
+
+.success-popup p {
+
+    padding: 0 25px;
+
+    color: var(--text-light);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ALERT POPUP
+   ========================================================= */
+
+.alert-popup {
+
+    max-width: 400px;
+
+    text-align: center;
+}
+
+
+.alert-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 25px auto 15px;
+
+    border-radius: 50%;
+
+    background: #fffbeb;
+
+    color: #d97706;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+}
+
+
+/* =========================================================
+   PROFILE MODAL
+   ========================================================= */
+
+.profile-popup {
+
+    max-width: 650px;
+}
+
+
+.profile-cover {
+
+    height: 105px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #991b1b,
+            #dc2626
+        );
+
+    position: relative;
+}
+
+
+.profile-avatar-large {
+
+    position: absolute;
+
+    width: 88px;
+
+    height: 88px;
+
+    border-radius: 50%;
+
+    left: 25px;
+
+    bottom: -44px;
+
+    border: 5px solid #fff;
+
+    background: #f1f5f9;
+
+    object-fit: cover;
+}
+
+
+.profile-popup-content {
+
+    padding: 55px 25px 25px;
+}
+
+
+.profile-name {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 3px;
+}
+
+
+.profile-name h3 {
+
+    font-size: 18px;
+}
+
+
+.profile-verified {
+
+    color: #2563eb;
+
+    font-size: 14px;
+}
+
+
+.profile-role {
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+.profile-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    margin: 20px 0;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.profile-stat {
+
+    padding: 13px;
+
+    text-align: center;
+
+    border-right: 1px solid var(--border);
+}
+
+
+.profile-stat:last-child {
+
+    border-right: none;
+}
+
+
+.profile-stat strong {
+
+    display: block;
+
+    color: var(--primary);
+
+    font-family: Poppins,sans-serif;
+
+    font-size: 15px;
+}
+
+
+.profile-stat span {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+
+    margin-top: 2px;
+}
+
+
+.profile-info-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 12px;
+}
+
+
+.profile-info-item {
+
+    padding: 12px;
+
+    background: #f8fafc;
+
+    border-radius: 9px;
+}
+
+
+.profile-info-item span {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+
+    margin-bottom: 4px;
+}
+
+
+.profile-info-item strong {
+
+    display: block;
+
+    color: var(--text-dark);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast-container {
+
+    position: fixed;
+
+    right: 22px;
+
+    bottom: 22px;
+
+    z-index: 10000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.toast {
+
+    min-width: 280px;
+
+    max-width: 360px;
+
+    padding: 13px 15px;
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-left: 3px solid var(--primary);
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.12);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    animation: toastIn .3s ease;
+}
+
+
+.toast-icon {
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 8px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.toast-content strong {
+
+    display: block;
+
+    color: var(--text-dark);
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+}
+
+
+.toast-content span {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+}
+
+
+@keyframes toastIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateX(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateX(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .popup-modal {
+
+        max-height: 95vh;
+
+        border-radius: 14px;
+    }
+
+    .profile-info-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .profile-stats {
+
+        grid-template-columns: 1fr;
+    }
+
+    .profile-stat {
+
+        border-right: none;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .profile-stat:last-child {
+
+        border-bottom: none;
+    }
+
+    .toast-container {
+
+        left: 15px;
+
+        right: 15px;
+
+        bottom: 15px;
+    }
+
+    .toast {
+
+        min-width: 0;
+
+        width: 100%;
+    }
+
+}

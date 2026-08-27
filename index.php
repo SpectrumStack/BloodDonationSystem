@@ -4,1579 +4,1934 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Blood Donation Management System</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Bootstrap -->
+    <title>BloodCare | Save Lives, Donate Blood</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Bootstrap Icons -->
 
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
-    <!-- Google Font -->
+
+    <!-- Global CSS -->
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
 
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+
+        /* =====================================================
+           LANDING PAGE
+           ===================================================== */
+
+        .landing-page {
+            min-height: 100vh;
+            background: #fff;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+           ===================================================== */
+
+        .landing-nav {
+
+            height: 76px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(255,255,255,0.96);
+
+            border-bottom: 1px solid #f1f5f9;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            backdrop-filter: blur(10px);
+        }
+
+
+        .landing-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .landing-logo-icon {
+
+            width: 39px;
+
+            height: 39px;
+
+            border-radius: 11px;
+
+            background: var(--primary);
+
+            color: #fff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 18px;
+
+            box-shadow:
+                0 7px 18px rgba(220,38,38,0.22);
+        }
+
+
+        .landing-logo-text {
+
+            font-family: Poppins, sans-serif;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            color: var(--secondary);
+        }
+
+
+        .landing-logo-text span {
+            color: var(--primary);
+        }
+
+
+        .landing-nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+
+        .landing-nav-links a {
+
+            color: var(--text-light);
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            transition: var(--transition);
+        }
+
+
+        .landing-nav-links a:hover {
+
+            color: var(--primary);
+        }
+
+
+        .landing-nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+
+            min-height: 650px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 0.9fr;
+
+            align-items: center;
+
+            gap: 60px;
+
+            padding: 70px 8%;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(220,38,38,0.08),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    180deg,
+                    #fff 0%,
+                    #fff8f8 100%
+                );
+
+            overflow: hidden;
+        }
+
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+
+        .hero-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 7px 12px;
+
+            background: var(--primary-soft);
+
+            border: 1px solid #fecaca;
+
+            border-radius: 30px;
+
+            color: var(--primary);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero-badge i {
+            font-size: 12px;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 20px;
+
+            max-width: 650px;
+        }
+
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+
+        .hero-description {
+
+            max-width: 540px;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            color: var(--text-light);
+
+            margin-bottom: 30px;
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-btn {
+
+            padding: 13px 21px;
+
+            border-radius: 11px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            transition: var(--transition);
+        }
+
+
+        .hero-btn-primary {
+
+            color: #fff;
+
+            background: var(--primary);
+
+            box-shadow:
+                0 8px 22px rgba(220,38,38,0.22);
+        }
+
+
+        .hero-btn-primary:hover {
+
+            background: var(--primary-dark);
+
+            color: #fff;
+
+            transform: translateY(-2px);
+        }
+
+
+        .hero-btn-outline {
+
+            color: var(--text-dark);
+
+            border: 1px solid var(--border);
+
+            background: #fff;
+        }
+
+
+        .hero-btn-outline:hover {
+
+            border-color: var(--primary);
+
+            color: var(--primary);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           HERO VISUAL
+           ===================================================== */
+
+        .hero-visual {
+
+            position: relative;
+
+            min-height: 480px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .hero-circle {
+
+            width: 400px;
+
+            height: 400px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fee2e2,
+                    #fff
+                );
+
+            border: 1px solid #fecaca;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 30px 70px rgba(220,38,38,0.12);
+        }
+
+
+        .hero-drop {
+
+            width: 190px;
+
+            height: 245px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ef4444,
+                    #991b1b
+                );
+
+            border-radius:
+                65% 65% 65% 0;
+
+            transform: rotate(-45deg);
+
+            box-shadow:
+                0 25px 40px rgba(153,27,27,0.25);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .hero-drop i {
+
+            transform: rotate(45deg);
+
+            color: #fff;
+
+            font-size: 65px;
+        }
+
+
+        /* =====================================================
+           FLOATING CARDS
+           ===================================================== */
+
+        .hero-float {
+
+            position: absolute;
+
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            padding: 13px;
+
+            box-shadow:
+                0 15px 35px rgba(15,23,42,0.10);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .hero-float.one {
+
+            top: 70px;
+
+            right: 0;
+        }
+
+
+        .hero-float.two {
+
+            bottom: 70px;
+
+            left: 0;
+        }
+
+
+        .hero-float-icon {
+
+            width: 36px;
+
+            height: 36px;
+
+            border-radius: 10px;
+
+            background: var(--primary-light);
+
+            color: var(--primary);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .hero-float strong {
+
+            display: block;
+
+            color: var(--text-dark);
+
+            font-size: 12px;
+        }
+
+
+        .hero-float span {
+
+            display: block;
+
+            color: var(--text-muted);
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           STATS
+           ===================================================== */
+
+        .landing-stats {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            max-width: 1100px;
+
+            margin: -35px auto 0;
+
+            position: relative;
+
+            z-index: 5;
+
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px rgba(15,23,42,0.08);
+        }
+
+
+        .landing-stat {
+
+            text-align: center;
+
+            padding: 24px;
+
+            border-right: 1px solid var(--border);
+        }
+
+
+        .landing-stat:last-child {
+            border-right: none;
+        }
+
+
+        .landing-stat strong {
+
+            display: block;
+
+            font-family: Poppins, sans-serif;
+
+            color: var(--primary);
+
+            font-size: 25px;
+
+            font-weight: 800;
+        }
+
+
+        .landing-stat span {
+
+            display: block;
+
+            color: var(--text-light);
+
+            font-size: 10px;
+
+            margin-top: 3px;
+        }
+
+
+        /* =====================================================
+           SECTION
+           ===================================================== */
+
+        .landing-section {
+
+            padding: 90px 8%;
+        }
+
+
+        .landing-section-header {
+
+            text-align: center;
+
+            max-width: 650px;
+
+            margin: 0 auto 45px;
+        }
+
+
+        .landing-section-header .small-title {
+
+            color: var(--primary);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .landing-section-header h2 {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .landing-section-header p {
+
+            font-size: 12px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           FEATURE CARDS
+           ===================================================== */
+
+        .feature-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .feature-card {
+
+            padding: 28px;
+
+            background: #fff;
+
+            border: 1px solid var(--border);
+
+            border-radius: 17px;
+
+            transition: var(--transition);
+        }
+
+
+        .feature-card:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #fecaca;
+
+            box-shadow: var(--shadow-md);
+        }
+
+
+        .feature-icon {
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 14px;
+
+            background: var(--primary-soft);
+
+            color: var(--primary);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 22px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .feature-card h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .feature-card p {
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           HOW IT WORKS
+           ===================================================== */
+
+        .steps {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 35px;
+
+            position: relative;
+        }
+
+
+        .step {
+
+            text-align: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .step-number {
+
+            width: 60px;
+
+            height: 60px;
+
+            border-radius: 50%;
+
+            margin: auto auto 18px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: var(--primary);
+
+            color: #fff;
+
+            font-family: Poppins, sans-serif;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 10px 25px rgba(220,38,38,0.20);
+        }
+
+
+        .step h3 {
+
+            font-size: 15px;
+
+            margin-bottom: 7px;
+        }
+
+
+        .step p {
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           CTA
+           ===================================================== */
+
+        .cta-section {
+
+            margin: 0 8% 80px;
+
+            padding: 55px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #991b1b,
+                    #dc2626
+                );
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .cta-section::before {
+
+            content: '';
+
+            position: absolute;
+
+            width: 300px;
+
+            height: 300px;
+
+            border-radius: 50%;
+
+            right: -100px;
+
+            top: -150px;
+
+            background: rgba(255,255,255,0.08);
+        }
+
+
+        .cta-section h2 {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: #fff;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .cta-section p {
+
+            position: relative;
+
+            z-index: 2;
+
+            color: rgba(255,255,255,0.75);
+
+            font-size: 12px;
+
+            margin-bottom: 23px;
+        }
+
+
+        .cta-section .hero-btn {
+
+            position: relative;
+
+            z-index: 2;
+
+            background: #fff;
+
+            color: var(--primary);
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .landing-footer {
+
+            padding: 45px 8% 25px;
+
+            background: #0f172a;
+
+            color: #fff;
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+
+            gap: 40px;
+
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        .footer-brand p {
+
+            max-width: 320px;
+
+            color: #94a3b8;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+
+            margin-top: 14px;
+        }
+
+
+        .footer-column h4 {
+
+            color: #fff;
+
+            font-size: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .footer-column a {
+
+            display: block;
+
+            color: #64748b;
+
+            font-size: 10px;
+
+            margin-bottom: 9px;
+
+            transition: var(--transition);
+        }
+
+
+        .footer-column a:hover {
+
+            color: #ef4444;
+        }
+
+
+        .footer-bottom {
+
+            max-width: 1200px;
+
+            margin: 35px auto 0;
+
+            padding-top: 18px;
+
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #64748b;
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .hero {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 60px 6%;
+            }
+
+            .hero-content {
+
+                margin: auto;
+            }
+
+            .hero-description {
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+
+                justify-content: center;
+            }
+
+            .hero-visual {
+
+                min-height: 400px;
+            }
+
+            .landing-stats {
+
+                margin-left: 5%;
+
+                margin-right: 5%;
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .landing-nav {
+
+                padding: 0 20px;
+            }
+
+            .landing-nav-links {
+
+                display: none;
+            }
+
+            .hero-circle {
+
+                width: 300px;
+
+                height: 300px;
+            }
+
+            .hero-drop {
+
+                width: 135px;
+
+                height: 180px;
+            }
+
+            .landing-stats {
+
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .landing-stat {
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .landing-stat:nth-child(2) {
+
+                border-right: none;
+            }
+
+            .landing-stat:nth-child(3),
+            .landing-stat:nth-child(4) {
+
+                border-bottom: none;
+            }
+
+            .feature-grid,
+            .steps {
+
+                grid-template-columns: 1fr;
+            }
+
+            .landing-section {
+
+                padding: 65px 6%;
+            }
+
+            .cta-section {
+
+                margin: 0 5% 60px;
+
+                padding: 40px 22px;
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .landing-nav-actions .btn {
+
+                padding: 8px 11px;
+
+                font-size: 10px;
+            }
+
+            .hero {
+
+                padding-top: 45px;
+            }
+
+            .hero h1 {
+
+                font-size: 36px;
+
+                letter-spacing: -1px;
+            }
+
+            .hero-visual {
+
+                min-height: 330px;
+            }
+
+            .hero-circle {
+
+                width: 250px;
+
+                height: 250px;
+            }
+
+            .hero-drop {
+
+                width: 110px;
+
+                height: 145px;
+            }
+
+            .hero-float.one {
+
+                right: -5px;
+
+                top: 35px;
+            }
+
+            .hero-float.two {
+
+                left: -5px;
+
+                bottom: 35px;
+            }
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<!-- ========================= NAVBAR =========================== -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm sticky-top">
+<div class="landing-page">
 
-    <div class="container">
 
-        <a class="navbar-brand fw-bold fs-3" href="#">
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
 
-            <i class="bi bi-heart-pulse-fill"></i>
+    <nav class="landing-nav">
 
-            BloodCare
+
+        <a
+            href="index.php"
+            class="landing-logo"
+        >
+
+            <div class="landing-logo-icon">
+
+                <i class="bi bi-droplet-fill"></i>
+
+            </div>
+
+            <div class="landing-logo-text">
+
+                Blood<span>Care</span>
+
+            </div>
 
         </a>
 
-        <button class="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbar">
 
-            <span class="navbar-toggler-icon"></span>
+        <div class="landing-nav-links">
 
-        </button>
+            <a href="#home">
+                Home
+            </a>
 
-        <div class="collapse navbar-collapse"
-            id="navbar">
+            <a href="#about">
+                About
+            </a>
 
-            <ul class="navbar-nav ms-auto">
+            <a href="#services">
+                Services
+            </a>
 
-                <li class="nav-item">
-
-                    <a class="nav-link active" href="#">Home</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="#">Search Donor</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="#">Blood Camp</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="#">Emergency</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="nav-link" href="#">About</a>
-
-                </li>
-
-                <li class="nav-item">
-
-                    <a class="btn btn-light text-danger ms-lg-3 px-4"
-                        href="login.php">
-
-                        Login
-
-                    </a>
-
-                </li>
-
-            </ul>
+            <a href="#how-it-works">
+                How It Works
+            </a>
 
         </div>
 
-    </div>
 
-</nav>
+        <div class="landing-nav-actions">
 
-<!-- ======================= HERO SECTION ======================= -->
+            <a
+                href="login.php"
+                class="btn btn-outline btn-sm"
+            >
 
-<section class="hero">
+                Login
 
-    <div class="container">
+            </a>
 
-        <div class="row align-items-center">
+            <a
+                href="register.php"
+                class="btn btn-primary btn-sm"
+            >
 
-            <div class="col-lg-6">
+                Get Started
 
-                <span class="badge bg-light text-danger mb-3 p-2">
+            </a>
 
-                    ❤️ Save Life Through Blood Donation
+        </div>
 
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+        class="hero"
+        id="home"
+    >
+
+
+        <div class="hero-content">
+
+
+            <div class="hero-badge">
+
+                <i class="bi bi-heart-pulse-fill"></i>
+
+                Together We Can Save Lives
+
+            </div>
+
+
+            <h1>
+
+                Every Drop of Blood
+
+                <span>
+                    Can Save a Life.
                 </span>
 
-                <h1 class="display-4 fw-bold text-white">
+            </h1>
 
-                    Donate Blood,
 
-                    <br>
+            <p class="hero-description">
 
-                    Save Someone's Life.
-
-                </h1>
-
-                <p class="text-light mt-4">
-
-                    BloodCare is a modern blood donation management system
-                    that helps patients quickly find suitable blood donors,
-                    manage donation appointments, emergency requests,
-                    blood camps and blood stock efficiently.
-
-                </p>
-
-                <div class="mt-4">
-
-                    <a href="register.php"
-                        class="btn btn-light btn-lg me-3">
-
-                        Become Donor
-
-                    </a>
-
-                    <a href="blood_request.php"
-                        class="btn btn-outline-light btn-lg">
-
-                        Request Blood
-
-                    </a>
-
-                </div>
-
-                <div class="row mt-5">
-
-                    <div class="col-4">
-
-                        <h2 class="fw-bold text-white">
-
-                            5000+
-
-                        </h2>
-
-                        <p class="text-light">
-
-                            Donors
-
-                        </p>
-
-                    </div>
-
-                    <div class="col-4">
-
-                        <h2 class="fw-bold text-white">
-
-                            1200+
-
-                        </h2>
-
-                        <p class="text-light">
-
-                            Requests
-
-                        </p>
-
-                    </div>
-
-                    <div class="col-4">
-
-                        <h2 class="fw-bold text-white">
-
-                            350+
-
-                        </h2>
-
-                        <p class="text-light">
-
-                            Camps
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-           
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Bootstrap JS -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- ========================================================= -->
-<!--                SEARCH DONOR SECTION                       -->
-<!-- ========================================================= -->
-
-<section class="py-5 bg-light">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold text-danger">
-                Find a Blood Donor
-            </h2>
-
-            <p class="text-muted">
-                Search donors instantly by blood group and location.
-            </p>
-
-        </div>
-
-        <div class="card shadow-lg border-0 rounded-4 p-4">
-
-            <form>
-
-                <div class="row g-3">
-
-                    <div class="col-md-3">
-
-                        <label class="form-label fw-semibold">
-                            Blood Group
-                        </label>
-
-                        <select class="form-select">
-
-                            <option selected>Select</option>
-
-                            <option>A+</option>
-                            <option>A-</option>
-                            <option>B+</option>
-                            <option>B-</option>
-                            <option>AB+</option>
-                            <option>AB-</option>
-                            <option>O+</option>
-                            <option>O-</option>
-
-                        </select>
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <label class="form-label fw-semibold">
-                            District
-                        </label>
-
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Dhaka">
-
-                    </div>
-
-                    <div class="col-md-3">
-
-                        <label class="form-label fw-semibold">
-                            Area
-                        </label>
-
-                        <input
-                            type="text"
-                            class="form-control"
-                            placeholder="Rampura">
-
-                    </div>
-
-                    <div class="col-md-3 d-grid">
-
-                        <label class="form-label text-white">
-                            Search
-                        </label>
-
-                        <button class="btn btn-danger">
-
-                            <i class="bi bi-search"></i>
-
-                            Search Donor
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================================= -->
-<!--                  FEATURE SECTION                          -->
-<!-- ========================================================= -->
-
-<section class="py-5 success-section">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-
-                Why Choose BloodCare?
-
-            </h2>
-
-            <p class="text-muted">
-
-                Modern blood donation management with fast response.
+                BloodCare connects generous blood donors with
+                patients who need blood. Find a donor, request
+                blood, donate and help make a difference in
+                someone's life.
 
             </p>
 
-        </div>
 
-        <div class="row g-4">
+            <div class="hero-buttons">
 
-            <div class="col-lg-4">
+                <a
+                    href="register.php"
+                    class="hero-btn hero-btn-primary"
+                >
 
-                <div class="card border-0 shadow h-100 rounded-4 text-center p-4">
+                    <i class="bi bi-heart-fill"></i>
 
-                    <div class="display-4 text-danger mb-3">
+                    Become a Donor
 
-                        <i class="bi bi-heart-pulse-fill"></i>
+                </a>
 
-                    </div>
 
-                    <h4>
+                <a
+                    href="login.php"
+                    class="hero-btn hero-btn-outline"
+                >
 
-                        Safe Donation
+                    <i class="bi bi-search"></i>
 
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Donate blood safely through verified donation
-                        centers and experienced medical teams.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow h-100 rounded-4 text-center p-4">
-
-                    <div class="display-4 text-danger mb-3">
-
-                        <i class="bi bi-lightning-charge-fill"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Emergency Support
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Instantly notify nearby donors during emergency
-                        blood requests.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow h-100 rounded-4 text-center p-4">
-
-                    <div class="display-4 text-danger mb-3">
-
-                        <i class="bi bi-people-fill"></i>
-
-                    </div>
-
-                    <h4>
-
-                        Trusted Community
-
-                    </h4>
-
-                    <p class="text-muted">
-
-                        Thousands of verified blood donors are ready
-                        to help patients anytime.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================================= -->
-<!--                 LIVE STATISTICS                           -->
-<!-- ========================================================= -->
-
-<section class="py-5 bg-danger text-white">
-
-    <div class="container">
-
-        <div class="row text-center">
-
-            <div class="col-md-3">
-
-                <h1 class="fw-bold">
-
-                    5000+
-
-                </h1>
-
-                <p>
-
-                    Registered Donors
-
-                </p>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <h1 class="fw-bold">
-
-                    3200+
-
-                </h1>
-
-                <p>
-
-                    Blood Donations
-
-                </p>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <h1 class="fw-bold">
-
-                    1200+
-
-                </h1>
-
-                <p>
-
-                    Emergency Requests
-
-                </p>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <h1 class="fw-bold">
-
-                    350+
-
-                </h1>
-
-                <p>
-
-                    Blood Camps
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ========================================================= -->
-<!--                   HOW IT WORKS                            -->
-<!-- ========================================================= -->
-
-<section class="py-5">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-
-                How It Works
-
-            </h2>
-
-            <p class="text-muted">
-
-                Just four simple steps.
-
-            </p>
-
-        </div>
-
-        <div class="row g-4">
-
-            <div class="col-md-3">
-
-                <div class="card border-0 shadow rounded-4 text-center p-4 h-100">
-
-                    <div class="display-5 text-danger">
-
-                        1
-
-                    </div>
-
-                    <h5 class="mt-3">
-
-                        Register
-
-                    </h5>
-
-                    <p class="text-muted">
-
-                        Create your donor account.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card border-0 shadow rounded-4 text-center p-4 h-100">
-
-                    <div class="display-5 text-danger">
-
-                        2
-
-                    </div>
-
-                    <h5 class="mt-3">
-
-                        Search
-
-                    </h5>
-
-                    <p class="text-muted">
-
-                        Find nearby blood donors.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card border-0 shadow rounded-4 text-center p-4 h-100">
-
-                    <div class="display-5 text-danger">
-
-                        3
-
-                    </div>
-
-                    <h5 class="mt-3">
-
-                        Request
-
-                    </h5>
-
-                    <p class="text-muted">
-
-                        Send blood request instantly.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-3">
-
-                <div class="card border-0 shadow rounded-4 text-center p-4 h-100">
-
-                    <div class="display-5 text-danger">
-
-                        4
-
-                    </div>
-
-                    <h5 class="mt-3">
-
-                        Save Life
-
-                    </h5>
-
-                    <p class="text-muted">
-
-                        Help patients with timely donations.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================================================= -->
-<!--              UPCOMING BLOOD CAMPS                 -->
-<!-- ================================================= -->
-
-<section class="py-5 bg-light">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <span class="badge bg-danger px-3 py-2">
-                Upcoming Events
-            </span>
-
-            <h2 class="fw-bold mt-3">
-                Upcoming Blood Donation Camps
-            </h2>
-
-            <p class="text-muted">
-                Join our upcoming blood donation camps and help save lives.
-            </p>
-
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Camp 1 -->
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
-
-                    <img src="assets/images/camp1.jpg"
-                        class="card-img-top"
-                        height="220"
-                        style="object-fit:cover;">
-
-                    <div class="card-body">
-
-                        <span class="badge bg-danger mb-3">
-
-                            15 August 2026
-
-                        </span>
-
-                        <h4>
-
-                            Dhaka Mega Blood Camp
-
-                        </h4>
-
-                        <p class="text-muted">
-
-                            Organized by BloodCare Foundation.
-
-                        </p>
-
-                        <hr>
-
-                        <p>
-
-                            <i class="bi bi-geo-alt-fill text-danger"></i>
-
-                            Bashundhara Convention Hall
-
-                        </p>
-
-                        <p>
-
-                            <i class="bi bi-clock-fill text-danger"></i>
-
-                            9:00 AM - 5:00 PM
-
-                        </p>
-
-                        <a href="#"
-                            class="btn btn-danger w-100">
-
-                            Register Now
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Camp 2 -->
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
-
-                    <img src="assets/images/camp2.jpg"
-                        class="card-img-top"
-                        height="220"
-                        style="object-fit:cover;">
-
-                    <div class="card-body">
-
-                        <span class="badge bg-danger mb-3">
-
-                            22 August 2026
-
-                        </span>
-
-                        <h4>
-
-                            City Medical Blood Camp
-
-                        </h4>
-
-                        <p class="text-muted">
-
-                            Help hospitals maintain blood stock.
-
-                        </p>
-
-                        <hr>
-
-                        <p>
-
-                            <i class="bi bi-geo-alt-fill text-danger"></i>
-
-                            Dhanmondi
-
-                        </p>
-
-                        <p>
-
-                            <i class="bi bi-clock-fill text-danger"></i>
-
-                            10 AM - 4 PM
-
-                        </p>
-
-                        <a href="#"
-                            class="btn btn-danger w-100">
-
-                            Register Now
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Camp 3 -->
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow-lg rounded-4 overflow-hidden h-100">
-
-                    <img src="assets/images/camp3.jpg"
-                        class="card-img-top"
-                        height="220"
-                        style="object-fit:cover;">
-
-                    <div class="card-body">
-
-                        <span class="badge bg-danger mb-3">
-
-                            30 August 2026
-
-                        </span>
-
-                        <h4>
-
-                            Youth Blood Festival
-
-                        </h4>
-
-                        <p class="text-muted">
-
-                            Donate blood and inspire others.
-
-                        </p>
-
-                        <hr>
-
-                        <p>
-
-                            <i class="bi bi-geo-alt-fill text-danger"></i>
-
-                            Uttara Sector 10
-
-                        </p>
-
-                        <p>
-
-                            <i class="bi bi-clock-fill text-danger"></i>
-
-                            8 AM - 3 PM
-
-                        </p>
-
-                        <a href="#"
-                            class="btn btn-danger w-100">
-
-                            Register Now
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-<!-- ================================================= -->
-<!--             EMERGENCY REQUEST BANNER              -->
-<!-- ================================================= -->
-
-<section class="py-5 emergency-section">
-
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-8">
-
-                <h2 class="text-white fw-bold">
-
-                    🚨 Emergency Blood Needed?
-
-                </h2>
-
-                <p class="text-light mt-3">
-
-                    Quickly send an emergency blood request.
-                    Nearby matching donors will instantly receive
-                    your notification.
-
-                </p>
-
-            </div>
-
-            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-
-                <a href="emergency_request.php"
-                    class="btn btn-light btn-lg px-5">
-
-                    Request Now
+                    Find Blood
 
                 </a>
 
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-<!-- ================================================= -->
-<!--              DONOR TESTIMONIALS                   -->
-<!-- ================================================= -->
-
-<section class="py-5 bg-light">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <span class="badge bg-danger px-3 py-2">
-                Testimonials
-            </span>
-
-            <h2 class="fw-bold mt-3">
-                What Our Donors Say
-            </h2>
-
-            <p class="text-muted">
-                Thousands of donors are helping save lives every day.
-            </p>
 
         </div>
 
-        <div class="row g-4">
 
-            <!-- Card 1 -->
 
-            <div class="col-lg-4">
+        <!-- HERO VISUAL -->
 
-                <div class="card border-0 shadow-lg rounded-4 p-4 h-100">
+        <div class="hero-visual">
 
-                    <div class="d-flex align-items-center mb-3">
 
-                        <img src="assets/images/user1.jpg"
-                             width="70"
-                             height="70"
-                             class="rounded-circle border border-3 border-danger">
+            <div class="hero-circle">
 
-                        <div class="ms-3">
-
-                            <h5 class="mb-0">
-
-                                Ahmed Rahman
-
-                            </h5>
-
-                            <small class="text-muted">
-
-                                Regular Blood Donor
-
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                    <p class="text-muted">
-
-                        "BloodCare made blood donation so easy.
-                        The appointment process is smooth and
-                        organized."
-
-                    </p>
-
-                    <div class="text-warning">
-
-                        ★★★★★
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Card 2 -->
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow-lg rounded-4 p-4 h-100">
-
-                    <div class="d-flex align-items-center mb-3">
-
-                        <img src="assets/images/user2.jpg"
-                             width="70"
-                             height="70"
-                             class="rounded-circle border border-3 border-danger">
-
-                        <div class="ms-3">
-
-                            <h5 class="mb-0">
-
-                                Nusrat Jahan
-
-                            </h5>
-
-                            <small class="text-muted">
-
-                                Volunteer
-
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                    <p class="text-muted">
-
-                        "I found a donor within minutes during
-                        an emergency. Amazing platform."
-
-                    </p>
-
-                    <div class="text-warning">
-
-                        ★★★★★
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Card 3 -->
-
-            <div class="col-lg-4">
-
-                <div class="card border-0 shadow-lg rounded-4 p-4 h-100">
-
-                    <div class="d-flex align-items-center mb-3">
-
-                        <img src="assets/images/user3.jpg"
-                             width="70"
-                             height="70"
-                             class="rounded-circle border border-3 border-danger">
-
-                        <div class="ms-3">
-
-                            <h5 class="mb-0">
-
-                                Sarah Islam
-
-                            </h5>
-
-                            <small class="text-muted">
-
-                                Blood Recipient
-
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                    <p class="text-muted">
-
-                        "This website saved my father's life.
-                        Thank you to every blood donor."
-
-                    </p>
-
-                    <div class="text-warning">
-
-                        ★★★★★
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!--               SUCCESS STORY                        -->
-<!-- ================================================= -->
-
-<section class="py-5">
-
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<img src="assets/images/success.png"
-class="img-fluid">
-
-</div>
-
-<div class="col-lg-6">
-
-<span class="badge bg-danger">
-
-Success Story
-
-</span>
-
-<h2 class="fw-bold mt-3">
-
-Together We Have Saved More Than
-10,000 Lives
-
-</h2>
-
-<p class="text-muted mt-3">
-
-Every blood donation can save up to
-three lives.
-
-Our mission is to connect donors with
-patients as quickly as possible.
-
-Join our growing community and become
-a hero today.
-
-</p>
-
-<div class="row mt-4">
-
-<div class="col-6">
-
-<h3 class="text-danger fw-bold">
-
-10K+
-
-</h3>
-
-<p>
-
-Lives Saved
-
-</p>
-
-</div>
-
-<div class="col-6">
-
-<h3 class="text-danger fw-bold">
-
-5000+
-
-</h3>
-
-<p>
-
-Registered Donors
-
-</p>
-
-</div>
-
-</div>
-
-<a href="register.php"
-class="btn btn-danger btn-lg mt-3">
-
-Become a Donor
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================================================= -->
-<!--             NEWSLETTER SECTION                     -->
-<!-- ================================================= -->
-
-<section class="py-5 bg-danger">
-
-<div class="container">
-
-<div class="row align-items-center">
-
-<div class="col-lg-6">
-
-<h2 class="text-white fw-bold">
-
-Stay Updated
-
-</h2>
-
-<p class="text-light">
-
-Receive updates about blood camps,
-emergency requests and health tips.
-
-</p>
-
-</div>
-
-<div class="col-lg-6">
-
-<div class="input-group">
-
-<input
-type="email"
-class="form-control form-control-lg"
-placeholder="Enter your email">
-
-<button class="btn btn-dark">
-
-Subscribe
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- ========================================= -->
-<!--            PROFESSIONAL FOOTER            -->
-<!-- ========================================= -->
-
-<footer class="footer bg-dark text-light pt-5 pb-3">
-
-    <div class="container">
-
-        <div class="row">
-
-            <!-- Company -->
-
-            <div class="col-lg-4 col-md-6 mb-4">
-
-                <h3 class="fw-bold text-danger">
+                <div class="hero-drop">
 
                     <i class="bi bi-heart-pulse-fill"></i>
 
-                    BloodCare
+                </div>
 
-                </h3>
+            </div>
 
-                <p class="mt-3">
 
-                    BloodCare is a modern Blood Donation Management System
-                    that connects blood donors with patients quickly and
-                    securely.
+            <!-- FLOAT CARD -->
 
-                </p>
+            <div class="hero-float one">
 
-                <div class="mt-4">
+                <div class="hero-float-icon">
 
-                    <a href="#" class="social-icon">
+                    <i class="bi bi-people-fill"></i>
 
-                        <i class="bi bi-facebook"></i>
+                </div>
 
-                    </a>
+                <div>
 
-                    <a href="#" class="social-icon">
+                    <strong>
+                        2,548+ Donors
+                    </strong>
 
-                        <i class="bi bi-instagram"></i>
-
-                    </a>
-
-                    <a href="#" class="social-icon">
-
-                        <i class="bi bi-twitter-x"></i>
-
-                    </a>
-
-                    <a href="#" class="social-icon">
-
-                        <i class="bi bi-linkedin"></i>
-
-                    </a>
+                    <span>
+                        Active donors
+                    </span>
 
                 </div>
 
             </div>
 
-            <!-- Quick Links -->
 
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="hero-float two">
 
-                <h5 class="fw-bold">
+                <div class="hero-float-icon">
 
-                    Quick Links
+                    <i class="bi bi-heart-fill"></i>
 
-                </h5>
+                </div>
 
-                <ul class="list-unstyled mt-3">
+                <div>
 
-                    <li>
+                    <strong>
+                        1,824 Lives Saved
+                    </strong>
 
-                        <a href="#" class="footer-link">
+                    <span>
+                        Through donations
+                    </span>
 
-                            Home
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#" class="footer-link">
-
-                            Search Donor
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#" class="footer-link">
-
-                            Blood Request
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#" class="footer-link">
-
-                            Blood Camp
-
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="#" class="footer-link">
-
-                            Contact
-
-                        </a>
-
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
 
-            <!-- Services -->
-
-            <div class="col-lg-3 col-md-6 mb-4">
-
-                <h5 class="fw-bold">
-
-                    Our Services
-
-                </h5>
-
-                <ul class="list-unstyled mt-3">
-
-                    <li>✔ Blood Donation</li>
-
-                    <li>✔ Emergency Request</li>
-
-                    <li>✔ Appointment Booking</li>
-
-                    <li>✔ Blood Stock</li>
-
-                    <li>✔ Donation Camp</li>
-
-                </ul>
-
-            </div>
-
-            <!-- Contact -->
-
-            <div class="col-lg-3 col-md-6 mb-4">
-
-                <h5 class="fw-bold">
-
-                    Contact Us
-
-                </h5>
-
-                <p class="mt-3">
-
-                    <i class="bi bi-geo-alt-fill text-danger"></i>
-
-                    Dhaka, Bangladesh
-
-                </p>
-
-                <p>
-
-                    <i class="bi bi-envelope-fill text-danger"></i>
-
-                    info@bloodcare.com
-
-                </p>
-
-                <p>
-
-                    <i class="bi bi-telephone-fill text-danger"></i>
-
-                    +880 1711-000000
-
-                </p>
-
-                <p>
-
-                    <i class="bi bi-clock-fill text-danger"></i>
-
-                    24/7 Emergency Support
-
-                </p>
-
-            </div>
 
         </div>
 
-        <hr class="border-secondary">
 
-        <div class="row align-items-center">
+    </section>
 
-            <div class="col-md-6">
 
-                <p class="mb-0">
 
-                    © 2026 BloodCare.
+    <!-- =====================================================
+         STATS
+         ===================================================== -->
 
-                    All Rights Reserved.
+    <div class="landing-stats">
 
-                </p>
 
-            </div>
+        <div class="landing-stat">
 
-            <div class="col-md-6 text-md-end">
+            <strong>
+                2.5K+
+            </strong>
 
-                <a href="#" class="footer-link me-3">
-
-                    Privacy Policy
-
-                </a>
-
-                <a href="#" class="footer-link me-3">
-
-                    Terms
-
-                </a>
-
-                <a href="#" class="footer-link">
-
-                    FAQ
-
-                </a>
-
-            </div>
+            <span>
+                Registered Donors
+            </span>
 
         </div>
+
+
+        <div class="landing-stat">
+
+            <strong>
+                1.8K+
+            </strong>
+
+            <span>
+                Successful Donations
+            </span>
+
+        </div>
+
+
+        <div class="landing-stat">
+
+            <strong>
+                1.2K+
+            </strong>
+
+            <span>
+                Blood Requests
+            </span>
+
+        </div>
+
+
+        <div class="landing-stat">
+
+            <strong>
+                98%
+            </strong>
+
+            <span>
+                Successful Matching
+            </span>
+
+        </div>
+
 
     </div>
 
-</footer>
+
+
+    <!-- =====================================================
+         SERVICES
+         ===================================================== -->
+
+    <section
+        class="landing-section"
+        id="services"
+    >
+
+
+        <div class="landing-section-header">
+
+            <div class="small-title">
+                Our Services
+            </div>
+
+            <h2>
+                Everything You Need in One Place
+            </h2>
+
+            <p>
+
+                BloodCare makes blood donation and blood
+                searching easier, faster and more reliable.
+
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-person-heart"></i>
+
+                </div>
+
+                <h3>
+                    Become a Donor
+                </h3>
+
+                <p>
+
+                    Register as a donor and make yourself
+                    available to people who urgently need
+                    your blood group.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-search"></i>
+
+                </div>
+
+                <h3>
+                    Find Blood
+                </h3>
+
+                <p>
+
+                    Search available donors by blood group,
+                    district and location whenever you need
+                    blood.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-exclamation-triangle"></i>
+
+                </div>
+
+                <h3>
+                    Emergency Request
+                </h3>
+
+                <p>
+
+                    Submit urgent blood requests and reach
+                    suitable donors as quickly as possible.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
 
 
 
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section
+        class="landing-section"
+        id="about"
+        style="background:#f8fafc;"
+    >
 
 
-<!-- ========================================= -->
-<!--          FLOATING EMERGENCY BUTTON         -->
-<!-- ========================================= -->
+        <div class="landing-section-header">
 
-<a href="emergency_request.php"
+            <div class="small-title">
+                About BloodCare
+            </div>
 
-class="emergency-btn"
+            <h2>
+                Technology Connecting People to Save Lives
+            </h2>
 
-title="Emergency Blood Request">
+            <p>
 
-<i class="bi bi-heart-pulse-fill"></i>
+                Our platform brings donors, patients,
+                hospitals and blood requests together in
+                one organized system.
 
-</a>
+            </p>
 
-
-
-
-
-<!-- ========================================= -->
-<!--            BACK TO TOP BUTTON             -->
-<!-- ========================================= -->
-
-<button id="topBtn"
-
-title="Back To Top">
-
-<i class="bi bi-arrow-up"></i>
-
-</button>
+        </div>
 
 
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-shield-check"></i>
+
+                </div>
+
+                <h3>
+                    Trusted Platform
+                </h3>
+
+                <p>
+
+                    Donor information and blood requests are
+                    managed through a structured and secure
+                    platform.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-lightning-charge-fill"></i>
+
+                </div>
+
+                <h3>
+                    Fast Matching
+                </h3>
+
+                <p>
+
+                    Quickly find suitable donors according
+                    to blood group and location.
+
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                </div>
+
+                <h3>
+                    Location Based
+                </h3>
+
+                <p>
+
+                    Search for donors and blood camps based
+                    on district and area.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
 
 
 
-<!-- ========================================= -->
-<!--                 SCRIPT                    -->
-<!-- ========================================= -->
+    <!-- =====================================================
+         HOW IT WORKS
+         ===================================================== -->
 
-<script>
+    <section
+        class="landing-section"
+        id="how-it-works"
+    >
 
-let topButton = document.getElementById("topBtn");
 
-window.onscroll = function () {
+        <div class="landing-section-header">
 
-if(document.body.scrollTop > 250 ||
+            <div class="small-title">
+                How It Works
+            </div>
 
-document.documentElement.scrollTop > 250){
+            <h2>
+                Three Simple Steps
+            </h2>
 
-topButton.style.display="block";
+            <p>
 
-}
+                Whether you're donating or searching for
+                blood, BloodCare keeps the process simple.
 
-else{
+            </p>
 
-topButton.style.display="none";
+        </div>
 
-}
 
-};
+        <div class="steps">
 
-topButton.onclick=function(){
 
-window.scrollTo({
+            <div class="step">
 
-top:0,
+                <div class="step-number">
+                    01
+                </div>
 
-behavior:'smooth'
+                <h3>
+                    Create Account
+                </h3>
 
-});
+                <p>
 
-}
+                    Register yourself as a donor or user
+                    and complete your profile.
 
-</script>
+                </p>
 
-<!-- Bootstrap JS -->
+            </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    Find or Request
+                </h3>
+
+                <p>
+
+                    Search donors or create a blood request
+                    according to your needs.
+
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Save a Life
+                </h3>
+
+                <p>
+
+                    Connect with a suitable donor and help
+                    someone receive the blood they need.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="cta-section">
+
+
+        <h2>
+            Ready to Make a Difference?
+        </h2>
+
+
+        <p>
+
+            Your one donation could be someone's second
+            chance at life.
+
+        </p>
+
+
+        <a
+            href="register.php"
+            class="hero-btn"
+        >
+
+            <i class="bi bi-heart-fill"></i>
+
+            Become a Blood Donor
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="landing-footer">
+
+
+        <div class="footer-grid">
+
+
+            <div class="footer-brand">
+
+                <div class="landing-logo">
+
+                    <div class="landing-logo-icon">
+
+                        <i class="bi bi-droplet-fill"></i>
+
+                    </div>
+
+                    <div
+                        class="landing-logo-text"
+                        style="color:#fff;"
+                    >
+
+                        Blood<span>Care</span>
+
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    A modern blood donation management
+                    platform connecting donors and people
+                    who need blood.
+
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Platform
+                </h4>
+
+                <a href="#">
+                    Find Donor
+                </a>
+
+                <a href="#">
+                    Blood Request
+                </a>
+
+                <a href="#">
+                    Blood Camps
+                </a>
+
+                <a href="#">
+                    Emergency
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Account
+                </h4>
+
+                <a href="login.php">
+                    Login
+                </a>
+
+                <a href="register.php">
+                    Register
+                </a>
+
+                <a href="#">
+                    Donor Dashboard
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+                <a href="#">
+                    About Us
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 BloodCare. All rights reserved.
+            </span>
+
+            <span>
+                Designed for saving lives ❤️
+            </span>
+
+        </div>
+
+
+    </footer>
+
+
+</div>
+
+
+<script src="assets/js/script.js"></script>
 
 </body>
 

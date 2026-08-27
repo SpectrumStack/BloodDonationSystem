@@ -1,0 +1,2011 @@
+/* =========================================================
+   BLOODCARE
+   DONOR MODULE - PROFESSIONAL UI
+   ========================================================= */
+
+:root {
+    --donor-red: #dc2626;
+    --donor-red-dark: #b91c1c;
+    --donor-red-soft: #fff1f2;
+
+    --donor-dark: #0f172a;
+    --donor-text: #1e293b;
+    --donor-muted: #64748b;
+
+    --donor-bg: #f8fafc;
+    --donor-white: #ffffff;
+
+    --donor-border: #e2e8f0;
+
+    --donor-green: #16a34a;
+    --donor-green-soft: #dcfce7;
+
+    --donor-blue: #2563eb;
+    --donor-blue-soft: #dbeafe;
+
+    --donor-orange: #d97706;
+    --donor-orange-soft: #fef3c7;
+
+    --donor-shadow: 0 8px 25px rgba(15, 23, 42, .06);
+    --donor-shadow-hover: 0 15px 35px rgba(15, 23, 42, .10);
+
+    --donor-radius: 16px;
+}
+
+
+/* =========================================================
+   DONOR APP
+   ========================================================= */
+
+.donor-app {
+    min-height: 100vh;
+    background: var(--donor-bg);
+}
+
+.donor-main {
+    min-height: 100vh;
+    margin-left: 248px;
+}
+
+
+/* =========================================================
+   DONOR NAVBAR
+   ========================================================= */
+
+.donor-navbar {
+    height: 72px;
+    background: #fff;
+    border-bottom: 1px solid var(--donor-border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+.donor-navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.donor-menu-btn {
+    width: 38px;
+    height: 38px;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border: 1px solid var(--donor-border);
+    border-radius: 10px;
+
+    color: var(--donor-text);
+}
+
+.donor-page-title small {
+    display: block;
+    color: var(--donor-muted);
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.donor-page-title strong {
+    display: block;
+    font-family: Poppins, sans-serif;
+    color: var(--donor-dark);
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   NAVBAR RIGHT
+   ========================================================= */
+
+.donor-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.donor-nav-icon {
+    width: 39px;
+    height: 39px;
+
+    border: 1px solid var(--donor-border);
+    border-radius: 10px;
+
+    background: #fff;
+    color: var(--donor-muted);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    transition: .25s ease;
+}
+
+.donor-nav-icon:hover {
+    color: var(--donor-red);
+    border-color: #fecaca;
+    background: var(--donor-red-soft);
+}
+
+.donor-notification-dot {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--donor-red);
+
+    top: 7px;
+    right: 7px;
+
+    border: 2px solid #fff;
+}
+
+.donor-navbar-divider {
+    width: 1px;
+    height: 30px;
+    background: var(--donor-border);
+}
+
+.donor-user-mini {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.donor-user-mini img {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px var(--donor-border);
+}
+
+.donor-user-mini-info strong {
+    display: block;
+    font-size: 12px;
+    color: var(--donor-dark);
+}
+
+.donor-user-mini-info span {
+    display: block;
+    font-size: 10px;
+    color: var(--donor-muted);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.donor-content {
+    padding: 30px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.donor-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.donor-page-header-left h1 {
+    font-family: Poppins, sans-serif;
+
+    font-size: 26px;
+
+    color: var(--donor-dark);
+
+    margin-bottom: 5px;
+}
+
+.donor-page-header-left p {
+    color: var(--donor-muted);
+    font-size: 13px;
+}
+
+.donor-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    margin-bottom: 9px;
+}
+
+.donor-breadcrumb i {
+    color: var(--donor-red);
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.donor-header-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   DONOR HERO
+   ========================================================= */
+
+.donor-welcome-card {
+    position: relative;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #991b1b,
+            #dc2626
+        );
+
+    color: #fff;
+
+    overflow: hidden;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 15px 35px rgba(220, 38, 38, .18);
+}
+
+.donor-welcome-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    right: -70px;
+    top: -100px;
+
+    background: rgba(255,255,255,.08);
+}
+
+.donor-welcome-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    border-radius: 50%;
+
+    right: 130px;
+    bottom: -110px;
+
+    background: rgba(255,255,255,.06);
+}
+
+.donor-welcome-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+.donor-welcome-content span {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 6px;
+
+    padding: 6px 10px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.14);
+
+    font-size: 10px;
+
+    margin-bottom: 12px;
+}
+
+.donor-welcome-content h2 {
+    color: #fff;
+
+    font-size: 25px;
+
+    margin-bottom: 7px;
+}
+
+.donor-welcome-content p {
+    color: rgba(255,255,255,.82);
+
+    font-size: 12px;
+
+    max-width: 550px;
+}
+
+
+/* =========================================================
+   STAT GRID
+   ========================================================= */
+
+.donor-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0,1fr));
+
+    gap: 17px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   STAT CARD
+   ========================================================= */
+
+.donor-stat-card {
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: var(--donor-radius);
+
+    padding: 20px;
+
+    box-shadow: var(--donor-shadow);
+
+    transition: .25s ease;
+}
+
+.donor-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--donor-shadow-hover);
+}
+
+.donor-stat-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.donor-stat-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    font-size: 18px;
+}
+
+.donor-stat-icon.red {
+    color: var(--donor-red);
+    background: var(--donor-red-soft);
+}
+
+.donor-stat-icon.green {
+    color: var(--donor-green);
+    background: var(--donor-green-soft);
+}
+
+.donor-stat-icon.blue {
+    color: var(--donor-blue);
+    background: var(--donor-blue-soft);
+}
+
+.donor-stat-icon.orange {
+    color: var(--donor-orange);
+    background: var(--donor-orange-soft);
+}
+
+.donor-stat-label {
+    color: var(--donor-muted);
+
+    font-size: 11px;
+
+    margin-top: 17px;
+}
+
+.donor-stat-number {
+    display: block;
+
+    color: var(--donor-dark);
+
+    font-family: Poppins, sans-serif;
+
+    font-size: 25px;
+
+    margin-top: 3px;
+}
+
+.donor-stat-description {
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.donor-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.45fr)
+        minmax(300px, .85fr);
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   DONOR CARD
+   ========================================================= */
+
+.donor-card {
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: var(--donor-radius);
+
+    box-shadow: var(--donor-shadow);
+
+    overflow: hidden;
+}
+
+.donor-card-header {
+    padding: 20px 22px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.donor-card-title h3 {
+    font-family: Poppins, sans-serif;
+
+    font-size: 16px;
+
+    color: var(--donor-dark);
+
+    margin-bottom: 3px;
+}
+
+.donor-card-title p {
+    color: var(--donor-muted);
+
+    font-size: 11px;
+}
+
+.donor-card-body {
+    padding: 22px;
+}
+
+
+/* =========================================================
+   PROFILE CARD
+   ========================================================= */
+
+.donor-profile-card {
+    padding: 24px;
+
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: var(--donor-radius);
+
+    box-shadow: var(--donor-shadow);
+
+    margin-bottom: 20px;
+}
+
+.donor-profile-top {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.donor-profile-avatar {
+    position: relative;
+}
+
+.donor-profile-avatar img {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+
+    border: 3px solid #fff;
+
+    box-shadow:
+        0 0 0 1px var(--donor-border),
+        0 8px 20px rgba(15,23,42,.08);
+}
+
+.donor-online {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    border: 3px solid #fff;
+
+    right: -2px;
+    bottom: 4px;
+}
+
+.donor-profile-name h2 {
+    font-size: 21px;
+
+    color: var(--donor-dark);
+
+    margin-bottom: 3px;
+}
+
+.donor-profile-name p {
+    font-size: 11px;
+
+    color: var(--donor-muted);
+
+    margin-bottom: 7px;
+}
+
+.donor-blood-badge {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px 9px;
+
+    border-radius: 30px;
+
+    background: var(--donor-red-soft);
+
+    color: var(--donor-red);
+
+    font-size: 10px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PROFILE DETAILS
+   ========================================================= */
+
+.donor-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 0;
+
+    margin-top: 5px;
+}
+
+.donor-info-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.donor-info-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+.donor-info-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f8fafc;
+
+    color: var(--donor-muted);
+}
+
+.donor-info-item span {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+}
+
+.donor-info-item strong {
+    display: block;
+
+    color: var(--donor-text);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   AVAILABILITY CARD
+   ========================================================= */
+
+.donor-availability {
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #f0fdf4,
+        #ffffff
+    );
+
+    border: 1px solid #bbf7d0;
+
+    margin-bottom: 18px;
+}
+
+.availability-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.availability-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.availability-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    background: var(--donor-green-soft);
+
+    color: var(--donor-green);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.availability-title strong {
+    display: block;
+
+    color: #166534;
+
+    font-size: 12px;
+}
+
+.availability-title span {
+    display: block;
+
+    color: #65a30d;
+
+    font-size: 9px;
+
+    margin-top: 2px;
+}
+
+.availability-switch {
+    position: relative;
+
+    width: 45px;
+    height: 24px;
+}
+
+.availability-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.availability-slider {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 30px;
+
+    background: #cbd5e1;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.availability-slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    left: 3px;
+    top: 3px;
+
+    background: #fff;
+
+    border-radius: 50%;
+
+    transition: .25s ease;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,.15);
+}
+
+.availability-switch input:checked + .availability-slider {
+    background: var(--donor-green);
+}
+
+.availability-switch input:checked + .availability-slider::before {
+    transform: translateX(21px);
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
+   ========================================================= */
+
+.quick-actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 11px;
+}
+
+.quick-action {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px;
+
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 11px;
+
+    transition: .25s ease;
+}
+
+.quick-action:hover {
+    border-color: #fecaca;
+
+    background: var(--donor-red-soft);
+
+    transform: translateY(-2px);
+}
+
+.quick-action-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--donor-red-soft);
+
+    color: var(--donor-red);
+}
+
+.quick-action strong {
+    display: block;
+
+    color: var(--donor-dark);
+
+    font-size: 11px;
+}
+
+.quick-action span {
+    display: block;
+
+    color: var(--donor-muted);
+
+    font-size: 9px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   APPOINTMENT
+   ========================================================= */
+
+.appointment-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 12px;
+
+    margin-bottom: 10px;
+
+    transition: .25s ease;
+}
+
+.appointment-card:hover {
+    border-color: #fecaca;
+
+    box-shadow: 0 7px 20px rgba(15,23,42,.05);
+}
+
+.appointment-date {
+    width: 54px;
+    height: 58px;
+
+    border-radius: 11px;
+
+    background: var(--donor-red-soft);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    flex-shrink: 0;
+}
+
+.appointment-date strong {
+    font-family: Poppins, sans-serif;
+
+    color: var(--donor-red);
+
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+.appointment-date span {
+    color: var(--donor-red);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    margin-top: 3px;
+}
+
+.appointment-info {
+    flex: 1;
+}
+
+.appointment-info h4 {
+    color: var(--donor-dark);
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.appointment-info p {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--donor-muted);
+
+    font-size: 10px;
+
+    margin-bottom: 3px;
+}
+
+.appointment-info small {
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.donor-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 6px 9px;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.donor-status::before {
+    content: "";
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+}
+
+.donor-status.pending {
+    color: #b45309;
+    background: #fffbeb;
+}
+
+.donor-status.confirmed {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.donor-status.completed {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.donor-status.cancelled {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+
+/* =========================================================
+   DONATION HISTORY
+   ========================================================= */
+
+.donation-history {
+    position: relative;
+
+    padding-left: 24px;
+}
+
+.donation-history::before {
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    top: 10px;
+    bottom: 10px;
+
+    width: 2px;
+
+    background: #fecaca;
+}
+
+.donation-item {
+    position: relative;
+
+    padding: 0 0 22px 20px;
+}
+
+.donation-item:last-child {
+    padding-bottom: 0;
+}
+
+.donation-dot {
+    position: absolute;
+
+    left: -1px;
+    top: 3px;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: var(--donor-red);
+
+    border: 4px solid #fff;
+
+    box-shadow: 0 0 0 1px #fecaca;
+}
+
+.donation-history-card {
+    padding: 16px;
+
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 12px;
+
+    transition: .25s ease;
+}
+
+.donation-history-card:hover {
+    border-color: #fecaca;
+
+    box-shadow: var(--donor-shadow);
+}
+
+.donation-history-top {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 9px;
+}
+
+.donation-history-top h4 {
+    font-size: 12px;
+
+    color: var(--donor-dark);
+}
+
+.donation-history-top span {
+    color: var(--donor-muted);
+
+    font-size: 9px;
+}
+
+.donation-details {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+}
+
+.donation-detail {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: var(--donor-muted);
+
+    font-size: 9px;
+}
+
+.donation-detail i {
+    color: var(--donor-red);
+}
+
+
+/* =========================================================
+   NOTIFICATION
+   ========================================================= */
+
+.notification-list {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.donor-notification {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 17px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.donor-notification:last-child {
+    border-bottom: none;
+}
+
+.notification-icon {
+    width: 41px;
+    height: 41px;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.notification-icon.red {
+    background: var(--donor-red-soft);
+    color: var(--donor-red);
+}
+
+.notification-icon.green {
+    background: var(--donor-green-soft);
+    color: var(--donor-green);
+}
+
+.notification-icon.blue {
+    background: var(--donor-blue-soft);
+    color: var(--donor-blue);
+}
+
+.notification-icon.orange {
+    background: var(--donor-orange-soft);
+    color: var(--donor-orange);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-content h4 {
+    color: var(--donor-dark);
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.notification-content p {
+    color: var(--donor-muted);
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+.notification-content small {
+    display: block;
+
+    color: #94a3b8;
+
+    font-size: 8px;
+
+    margin-top: 5px;
+}
+
+.notification-unread {
+    width: 7px;
+    height: 7px;
+
+    background: var(--donor-red);
+
+    border-radius: 50%;
+
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   FORM PAGE
+   ========================================================= */
+
+.donor-form-card {
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: var(--donor-radius);
+
+    box-shadow: var(--donor-shadow);
+
+    overflow: hidden;
+}
+
+.donor-form-header {
+    padding: 23px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    background:
+        linear-gradient(
+            to right,
+            #fff,
+            #fffafa
+        );
+}
+
+.donor-form-header h3 {
+    color: var(--donor-dark);
+
+    font-size: 16px;
+
+    margin-bottom: 4px;
+}
+
+.donor-form-header p {
+    color: var(--donor-muted);
+
+    font-size: 11px;
+}
+
+.donor-form-body {
+    padding: 25px;
+}
+
+.donor-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 18px;
+}
+
+.donor-form-group {
+    margin-bottom: 4px;
+}
+
+.donor-form-group.full {
+    grid-column: 1 / -1;
+}
+
+.donor-form-label {
+    display: block;
+
+    color: var(--donor-dark);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.donor-form-label span {
+    color: var(--donor-red);
+}
+
+.donor-form-control {
+    width: 100%;
+
+    min-height: 45px;
+
+    padding: 10px 13px;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: var(--donor-dark);
+
+    font-size: 11px;
+
+    transition: .25s ease;
+}
+
+.donor-form-control:focus {
+    border-color: var(--donor-red);
+
+    box-shadow:
+        0 0 0 4px rgba(220,38,38,.07);
+}
+
+textarea.donor-form-control {
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+.donor-form-footer {
+    padding: 18px 25px;
+
+    border-top: 1px solid #f1f5f9;
+
+    background: #fafbfc;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   PHOTO UPLOAD
+   ========================================================= */
+
+.donor-photo-upload {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 12px;
+
+    background: #fafbfc;
+}
+
+.donor-photo-preview {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 14px;
+
+    object-fit: cover;
+
+    border: 2px solid #fff;
+
+    box-shadow: 0 0 0 1px var(--donor-border);
+}
+
+.donor-upload-info strong {
+    display: block;
+
+    color: var(--donor-dark);
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+.donor-upload-info span {
+    display: block;
+
+    color: var(--donor-muted);
+
+    font-size: 9px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   BLOOD GROUP SELECT
+   ========================================================= */
+
+.blood-group-select {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.blood-option {
+    position: relative;
+}
+
+.blood-option input {
+    position: absolute;
+
+    opacity: 0;
+}
+
+.blood-option label {
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 9px;
+
+    color: var(--donor-muted);
+
+    background: #fff;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.blood-option input:checked + label {
+    border-color: var(--donor-red);
+
+    background: var(--donor-red-soft);
+
+    color: var(--donor-red);
+
+    box-shadow:
+        0 0 0 2px rgba(220,38,38,.08);
+}
+
+
+/* =========================================================
+   SEARCH / FILTER
+   ========================================================= */
+
+.donor-filter-bar {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    background: #fff;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 13px;
+
+    box-shadow: var(--donor-shadow);
+}
+
+.donor-search {
+    position: relative;
+
+    width: 320px;
+}
+
+.donor-search i {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+.donor-search input {
+    width: 100%;
+
+    height: 40px;
+
+    padding: 0 13px 0 37px;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-size: 10px;
+}
+
+.donor-search input:focus {
+    border-color: var(--donor-red);
+
+    box-shadow:
+        0 0 0 3px rgba(220,38,38,.07);
+}
+
+.donor-filter-actions {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.donor-table-wrapper {
+    overflow-x: auto;
+}
+
+.donor-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 750px;
+}
+
+.donor-table th {
+    padding: 13px 16px;
+
+    background: #fafbfc;
+
+    border-bottom: 1px solid var(--donor-border);
+
+    text-align: left;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .4px;
+}
+
+.donor-table td {
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    color: var(--donor-muted);
+
+    font-size: 10px;
+}
+
+.donor-table tbody tr {
+    transition: .2s ease;
+}
+
+.donor-table tbody tr:hover {
+    background: #fffafa;
+}
+
+.donor-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.donor-person {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.donor-person img {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 9px;
+
+    object-fit: cover;
+}
+
+.donor-person strong {
+    display: block;
+
+    color: var(--donor-dark);
+
+    font-size: 10px;
+
+    margin-bottom: 2px;
+}
+
+.donor-person span {
+    color: #94a3b8;
+
+    font-size: 8px;
+}
+
+.donor-table-blood {
+    width: 31px;
+    height: 31px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: var(--donor-red-soft);
+
+    color: var(--donor-red);
+
+    font-weight: 800;
+
+    font-size: 9px;
+}
+
+.donor-table-actions {
+    display: flex;
+
+    gap: 5px;
+}
+
+.donor-action-btn {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    border: 1px solid var(--donor-border);
+
+    background: #fff;
+
+    color: var(--donor-muted);
+
+    transition: .2s ease;
+}
+
+.donor-action-btn:hover {
+    color: var(--donor-red);
+
+    border-color: #fecaca;
+
+    background: var(--donor-red-soft);
+}
+
+
+/* =========================================================
+   PAGINATION
+   ========================================================= */
+
+.donor-pagination {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+}
+
+.donor-pagination-info {
+    color: var(--donor-muted);
+
+    font-size: 10px;
+}
+
+.donor-pagination-buttons {
+    display: flex;
+
+    gap: 5px;
+}
+
+.donor-page-btn {
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--donor-border);
+
+    border-radius: 7px;
+
+    background: #fff;
+
+    color: var(--donor-muted);
+
+    font-size: 10px;
+}
+
+.donor-page-btn.active {
+    color: #fff;
+
+    background: var(--donor-red);
+
+    border-color: var(--donor-red);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.donor-empty {
+    padding: 60px 20px;
+
+    text-align: center;
+}
+
+.donor-empty-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: auto auto 17px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--donor-red-soft);
+
+    color: var(--donor-red);
+
+    font-size: 27px;
+}
+
+.donor-empty h3 {
+    font-size: 16px;
+
+    color: var(--donor-dark);
+
+    margin-bottom: 5px;
+}
+
+.donor-empty p {
+    max-width: 400px;
+
+    margin: auto;
+
+    color: var(--donor-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .donor-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .donor-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .donor-main {
+        margin-left: 0;
+    }
+
+    .donor-menu-btn {
+        display: flex;
+    }
+
+    .donor-content {
+        padding: 22px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .donor-navbar {
+        padding: 0 16px;
+    }
+
+    .donor-page-title small {
+        display: none;
+    }
+
+    .donor-page-title strong {
+        font-size: 14px;
+    }
+
+    .donor-user-mini-info {
+        display: none;
+    }
+
+    .donor-navbar-divider {
+        display: none;
+    }
+
+    .donor-content {
+        padding: 18px 15px;
+    }
+
+    .donor-page-header {
+        flex-direction: column;
+    }
+
+    .donor-header-actions {
+        width: 100%;
+    }
+
+    .donor-header-actions .btn {
+        flex: 1;
+    }
+
+    .donor-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-welcome-card {
+        padding: 23px;
+    }
+
+    .donor-welcome-content h2 {
+        font-size: 20px;
+    }
+
+    .donor-profile-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .donor-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-info-item:nth-last-child(-n+2) {
+        border-bottom: 1px solid #f1f5f9;
+    }
+
+    .donor-info-item:last-child {
+        border-bottom: none;
+    }
+
+    .donor-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .donor-form-group.full {
+        grid-column: auto;
+    }
+
+    .donor-filter-bar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .donor-search {
+        width: 100%;
+    }
+
+    .donor-filter-actions {
+        width: 100%;
+    }
+
+    .donor-filter-actions > * {
+        flex: 1;
+    }
+
+    .donor-pagination {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .donor-navbar {
+        height: 64px;
+    }
+
+    .donor-nav-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .donor-user-mini img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .blood-group-select {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .donor-form-body {
+        padding: 17px;
+    }
+
+    .donor-form-footer {
+        padding: 15px 17px;
+    }
+
+}

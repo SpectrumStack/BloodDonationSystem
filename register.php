@@ -3,329 +3,32 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
+    <title>Create Account | BloodCare</title>
 
-<title>Register | BloodCare</title>
 
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
 
-<!-- Bootstrap -->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-rel="stylesheet">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
 
 
-<!-- Bootstrap Icons -->
-
-<link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-<!-- Google Font -->
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-
-
-<style>
-
-
-*{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
-font-family:'Poppins',sans-serif;
-
-}
-
-
-body{
-
-min-height:100vh;
-
-background:
-
-linear-gradient(
-rgba(220,53,69,.85),
-rgba(120,0,0,.85)
-),
-
-url("assets/images/register-bg.jpg");
-
-background-size:cover;
-
-background-position:center;
-
-padding:50px 0;
-
-}
-
-
-
-/* Main Card */
-
-.register-card{
-
-max-width:900px;
-
-margin:auto;
-
-background:white;
-
-border-radius:25px;
-
-padding:45px;
-
-box-shadow:0 20px 50px rgba(0,0,0,.25);
-
-animation:show .8s ease;
-
-}
-
-
-
-@keyframes show{
-
-from{
-
-opacity:0;
-
-transform:translateY(40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-
-/* Header */
-
-.logo{
-
-width:80px;
-
-height:80px;
-
-background:#dc3545;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-margin:auto;
-
-color:white;
-
-font-size:40px;
-
-}
-
-
-
-h2{
-
-color:#dc3545;
-
-font-weight:700;
-
-}
-
-
-
-/* Form */
-
-.form-label{
-
-font-weight:600;
-
-}
-
-
-
-.input-box{
-
-position:relative;
-
-}
-
-
-.input-box i{
-
-position:absolute;
-
-left:15px;
-
-top:17px;
-
-color:#dc3545;
-
-font-size:18px;
-
-}
-
-
-
-.form-control,
-.form-select{
-
-height:55px;
-
-border-radius:12px;
-
-padding-left:45px;
-
-border:1px solid #ddd;
-
-}
-
-
-.form-select{
-
-padding-left:15px;
-
-}
-
-
-
-.form-control:focus,
-.form-select:focus{
-
-border-color:#dc3545;
-
-box-shadow:0 0 0 .2rem rgba(220,53,69,.15);
-
-}
-
-
-
-/* Photo Upload */
-
-
-.photo-box{
-
-text-align:center;
-
-margin-bottom:25px;
-
-}
-
-
-.profile-icon{
-
-width:100px;
-
-height:100px;
-
-border-radius:50%;
-
-background:#ffe5e8;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-margin:auto;
-
-font-size:45px;
-
-color:#dc3545;
-
-}
-
-
-
-.upload-btn{
-
-margin-top:15px;
-
-}
-
-
-
-/* Button */
-
-
-.register-btn{
-
-height:55px;
-
-background:#dc3545;
-
-border:none;
-
-border-radius:30px;
-
-color:white;
-
-font-weight:600;
-
-font-size:17px;
-
-transition:.3s;
-
-}
-
-
-
-.register-btn:hover{
-
-background:#b02a37;
-
-transform:translateY(-3px);
-
-}
-
-
-
-/* Login */
-
-a{
-
-text-decoration:none;
-
-color:#dc3545;
-
-font-weight:600;
-
-}
-
-
-
-@media(max-width:768px){
-
-.register-card{
-
-padding:25px;
-
-}
-
-}
-
-
-
-</style>
-
+    <link
+        rel="stylesheet"
+        href="assets/css/auth.css"
+    >
 
 </head>
 
@@ -333,464 +36,418 @@ padding:25px;
 <body>
 
 
-<div class="container">
+<div class="auth-page">
 
 
+    <div
+        class="auth-container"
+        style="min-height:720px;"
+    >
 
-<div class="register-card">
 
+        <!-- =================================================
+             BRAND PANEL
+             ================================================= -->
 
+        <div class="auth-brand">
 
-<div class="logo">
 
-<i class="bi bi-heart-pulse-fill"></i>
+            <a
+                href="index.php"
+                class="auth-logo"
+            >
 
-</div>
+                <div class="auth-logo-icon">
 
+                    <i class="bi bi-droplet-fill"></i>
 
+                </div>
 
-<h2 class="text-center mt-3">
+                <span>
+                    BloodCare
+                </span>
 
-Create Donor Account
+            </a>
 
-</h2>
 
+            <div class="auth-brand-content">
 
-<p class="text-center text-muted mb-4">
+                <h1>
+                    Become Part of
+                    Something Bigger
+                </h1>
 
-Join BloodCare and save lives
 
-</p>
+                <p>
 
+                    Create your BloodCare account and join a
+                    community dedicated to helping people get
+                    the blood they need.
 
+                </p>
 
-<form>
 
+                <div class="auth-features">
 
 
-<!-- Photo -->
+                    <div class="auth-feature">
 
-<div class="photo-box">
+                        <div class="auth-feature-icon">
 
+                            <i class="bi bi-heart-fill"></i>
 
-<div class="profile-icon">
+                        </div>
 
-<i class="bi bi-person-fill"></i>
+                        <span>
+                            Donate blood and save lives
+                        </span>
 
-</div>
+                    </div>
 
 
-<input type="file"
-class="form-control mt-3">
+                    <div class="auth-feature">
 
+                        <div class="auth-feature-icon">
 
-</div>
+                            <i class="bi bi-search"></i>
 
+                        </div>
 
+                        <span>
+                            Find blood when you need it
+                        </span>
 
+                    </div>
 
 
-<div class="row g-4">
+                    <div class="auth-feature">
 
+                        <div class="auth-feature-icon">
 
-<!-- Name -->
+                            <i class="bi bi-bell-fill"></i>
 
-<div class="col-md-6">
+                        </div>
 
-<label class="form-label">
+                        <span>
+                            Get important notifications
+                        </span>
 
-Full Name
+                    </div>
 
-</label>
 
+                </div>
 
-<div class="input-box">
+            </div>
 
-<i class="bi bi-person-fill"></i>
 
-<input type="text"
-class="form-control"
-placeholder="Enter your name">
+            <div class="auth-brand-footer">
 
-</div>
+                Together, we can make every drop count.
 
-</div>
+            </div>
 
 
+        </div>
 
 
 
-<!-- Email -->
+        <!-- =================================================
+             FORM PANEL
+             ================================================= -->
 
-<div class="col-md-6">
+        <div class="auth-form-panel">
 
 
-<label class="form-label">
+            <div class="auth-form-wrapper">
 
-Email
 
-</label>
+                <div class="auth-form-header">
 
+                    <h2>
+                        Create Account
+                    </h2>
 
-<div class="input-box">
+                    <p>
+                        Join BloodCare in just a few steps.
+                    </p>
 
-<i class="bi bi-envelope-fill"></i>
+                </div>
 
-<input type="email"
-class="form-control"
-placeholder="Email address">
 
-</div>
+                <form
+                    action=""
+                    method="POST"
+                >
 
 
-</div>
+                    <!-- ROLE -->
 
+                    <div class="auth-form-group">
 
+                        <label>
+                            Account Type
+                        </label>
 
 
+                        <div class="role-selection">
 
-<!-- Phone -->
 
-<div class="col-md-6">
+                            <label class="role-option">
 
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="user"
+                                    checked
+                                >
 
-<label class="form-label">
+                                <div class="role-card">
 
-Phone Number
+                                    <i class="bi bi-person"></i>
 
-</label>
+                                    <span>
+                                        User
+                                    </span>
 
+                                </div>
 
-<div class="input-box">
+                            </label>
 
-<i class="bi bi-telephone-fill"></i>
 
+                            <label class="role-option">
 
-<input type="text"
-class="form-control"
-placeholder="Phone number">
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="donor"
+                                >
 
-</div>
+                                <div class="role-card">
 
+                                    <i class="bi bi-heart-pulse"></i>
 
-</div>
+                                    <span>
+                                        Donor
+                                    </span>
 
+                                </div>
 
+                            </label>
 
 
+                            <label class="role-option">
 
+                                <input
+                                    type="radio"
+                                    name="role"
+                                    value="admin"
+                                >
 
-<!-- Blood Group -->
+                                <div class="role-card">
 
-<div class="col-md-6">
+                                    <i class="bi bi-shield-lock"></i>
 
+                                    <span>
+                                        Admin
+                                    </span>
 
-<label class="form-label">
+                                </div>
 
-Blood Group
+                            </label>
 
-</label>
 
+                        </div>
 
-<select class="form-select">
+                    </div>
 
 
-<option>Select Blood Group</option>
+                    <!-- NAME -->
 
-<option>A+</option>
+                    <div class="auth-form-group">
 
-<option>A-</option>
+                        <label>
+                            Full Name
+                        </label>
 
-<option>B+</option>
 
-<option>B-</option>
+                        <div class="auth-input-wrapper">
 
-<option>AB+</option>
+                            <i class="bi bi-person"></i>
 
-<option>AB-</option>
+                            <input
+                                type="text"
+                                name="name"
+                                class="auth-input"
+                                placeholder="Enter your full name"
+                                required
+                            >
 
-<option>O+</option>
+                        </div>
 
-<option>O-</option>
+                    </div>
 
 
-</select>
+                    <!-- EMAIL -->
 
+                    <div class="auth-form-group">
 
-</div>
+                        <label>
+                            Email Address
+                        </label>
 
 
+                        <div class="auth-input-wrapper">
 
+                            <i class="bi bi-envelope"></i>
 
+                            <input
+                                type="email"
+                                name="email"
+                                class="auth-input"
+                                placeholder="Enter your email"
+                                required
+                            >
 
+                        </div>
 
-<!-- Gender -->
+                    </div>
 
-<div class="col-md-6">
 
+                    <!-- PHONE -->
 
-<label class="form-label">
+                    <div class="auth-form-group">
 
-Gender
+                        <label>
+                            Phone Number
+                        </label>
 
-</label>
 
+                        <div class="auth-input-wrapper">
 
-<select class="form-select">
+                            <i class="bi bi-telephone"></i>
 
+                            <input
+                                type="tel"
+                                name="phone"
+                                class="auth-input"
+                                placeholder="01XXXXXXXXX"
+                                required
+                            >
 
-<option>Select Gender</option>
+                        </div>
 
-<option>Male</option>
+                    </div>
 
-<option>Female</option>
 
-<option>Other</option>
+                    <!-- PASSWORD -->
 
+                    <div class="auth-form-group">
 
-</select>
+                        <label>
+                            Password
+                        </label>
 
 
-</div>
+                        <div class="auth-input-wrapper">
 
+                            <i class="bi bi-lock"></i>
 
+                            <input
+                                type="password"
+                                name="password"
+                                id="registerPassword"
+                                class="auth-input"
+                                placeholder="Create a password"
+                                required
+                            >
 
+                            <i
+                                class="bi bi-eye password-toggle"
+                                data-target="#registerPassword"
+                            ></i>
 
+                        </div>
 
-<!-- Age -->
+                    </div>
 
-<div class="col-md-6">
 
+                    <!-- TERMS -->
 
-<label class="form-label">
+                    <label class="auth-terms">
 
-Age
+                        <input
+                            type="checkbox"
+                            required
+                        >
 
-</label>
+                        <span>
 
+                            I agree to the
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+                            and
+                            <a href="#">
+                                Privacy Policy
+                            </a>.
 
-<div class="input-box">
+                        </span>
 
-<i class="bi bi-calendar"></i>
+                    </label>
 
-<input type="number"
-class="form-control"
-placeholder="Age">
 
+                    <!-- SUBMIT -->
 
-</div>
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
 
+                        <i class="bi bi-person-plus-fill"></i>
 
-</div>
+                        Create Account
 
+                    </button>
 
 
+                </form>
 
 
+                <!-- DIVIDER -->
 
-<!-- Address -->
+                <div class="auth-divider">
 
-<div class="col-12">
+                    <span>
+                        ALREADY REGISTERED?
+                    </span>
 
+                </div>
 
-<label class="form-label">
 
-Address
+                <div class="auth-switch">
 
-</label>
+                    Already have an account?
 
+                    <a href="login.php">
+                        Sign In
+                    </a>
 
-<div class="input-box">
+                </div>
 
 
-<i class="bi bi-geo-alt-fill"></i>
+            </div>
 
 
-<input type="text"
-class="form-control"
-placeholder="Your address">
+        </div>
 
 
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<!-- Medical Status -->
-
-<div class="col-md-6">
-
-
-<label class="form-label">
-
-Medical Status
-
-</label>
-
-
-<select class="form-select">
-
-
-<option>Select Status</option>
-
-<option>Healthy</option>
-
-<option>Under Treatment</option>
-
-<option>Not Available</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<!-- Last Donation -->
-
-
-<div class="col-md-6">
-
-
-<label class="form-label">
-
-Last Donation Date
-
-</label>
-
-
-<input type="date"
-class="form-control">
-
-
-
-</div>
-
-
-
-
-
-
-<!-- Password -->
-
-<div class="col-md-6">
-
-
-<label class="form-label">
-
-Password
-
-</label>
-
-
-<div class="input-box">
-
-
-<i class="bi bi-lock-fill"></i>
-
-
-<input type="password"
-class="form-control"
-placeholder="Password">
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- Confirm Password -->
-
-
-<div class="col-md-6">
-
-
-<label class="form-label">
-
-Confirm Password
-
-</label>
-
-
-<div class="input-box">
-
-
-<i class="bi bi-lock-fill"></i>
-
-
-<input type="password"
-class="form-control"
-placeholder="Confirm password">
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-<button class="btn register-btn w-100 mt-5">
-
-
-<i class="bi bi-person-plus-fill"></i>
-
-Register Now
-
-
-</button>
-
-
-
-
-
-<p class="text-center mt-4">
-
-
-Already have an account?
-
-
-<a href="login.php">
-
-Login
-
-</a>
-
-
-</p>
-
-
-
-
-</form>
-
+    </div>
 
 
 </div>
 
 
-</div>
-
-
+<script src="assets/js/script.js"></script>
 
 </body>
 

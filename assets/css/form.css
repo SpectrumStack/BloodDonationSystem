@@ -1,0 +1,1346 @@
+/* =========================================================
+   BLOODCARE
+   PROFESSIONAL FORM SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   FORM PAGE WRAPPER
+   ========================================================= */
+
+.form-page {
+
+    padding: 28px;
+
+    background: #f8fafc;
+
+    min-height: calc(100vh - 70px);
+}
+
+
+/* =========================================================
+   FORM CONTAINER
+   ========================================================= */
+
+.form-container {
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   FORM HEADER
+   ========================================================= */
+
+.form-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+
+.form-header-left h1 {
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+
+.form-header-left p {
+
+    font-size: 11px;
+
+    color: var(--text-light);
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.form-breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+}
+
+
+.form-breadcrumb a:hover {
+
+    color: var(--primary);
+}
+
+
+.form-breadcrumb i {
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.form-card {
+
+    background: #fff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.04);
+
+    overflow: hidden;
+
+    margin-bottom: 22px;
+}
+
+
+.form-card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 19px 23px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.form-card-icon {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 16px;
+}
+
+
+.form-card-header h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 2px;
+}
+
+
+.form-card-header p {
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   FORM BODY
+   ========================================================= */
+
+.form-card-body {
+
+    padding: 25px;
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 19px 20px;
+}
+
+
+.form-grid-3 {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 19px 20px;
+}
+
+
+.form-full {
+
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.form-label {
+
+    margin-bottom: 7px;
+
+    color: var(--text-dark);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.form-label span {
+
+    color: var(--primary);
+}
+
+
+.form-help {
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.form-control {
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    transition: var(--transition);
+}
+
+
+.form-control:hover {
+
+    border-color: #cbd5e1;
+}
+
+
+.form-control:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(220, 38, 38, 0.07);
+}
+
+
+.form-control::placeholder {
+
+    color: #a5afbd;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.form-select {
+
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 38px 0 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    background-color: #fff;
+
+    color: var(--text-dark);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.form-select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(220,38,38,0.07);
+}
+
+
+/* =========================================================
+   TEXTAREA
+   ========================================================= */
+
+.form-textarea {
+
+    width: 100%;
+
+    min-height: 110px;
+
+    resize: vertical;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    transition: var(--transition);
+}
+
+
+.form-textarea:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(220,38,38,0.07);
+}
+
+
+/* =========================================================
+   INPUT WITH ICON
+   ========================================================= */
+
+.input-icon-wrapper {
+
+    position: relative;
+}
+
+
+.input-icon-wrapper i {
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+.input-icon-wrapper .form-control {
+
+    padding-left: 39px;
+}
+
+
+/* =========================================================
+   INPUT WITH RIGHT ICON
+   ========================================================= */
+
+.input-action-wrapper {
+
+    position: relative;
+}
+
+
+.input-action-wrapper .form-control {
+
+    padding-right: 42px;
+}
+
+
+.input-action {
+
+    position: absolute;
+
+    right: 12px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+.input-action:hover {
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   RADIO
+   ========================================================= */
+
+.radio-group {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-height: 44px;
+}
+
+
+.radio-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-size: 11px;
+
+    color: var(--text-light);
+
+    cursor: pointer;
+}
+
+
+.radio-label input {
+
+    accent-color: var(--primary);
+}
+
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+
+.checkbox-label {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    color: var(--text-light);
+
+    cursor: pointer;
+}
+
+
+.checkbox-label input {
+
+    margin-top: 2px;
+
+    accent-color: var(--primary);
+}
+
+
+/* =========================================================
+   BLOOD GROUP SELECTOR
+   ========================================================= */
+
+.blood-group-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+
+.blood-group-option {
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+.blood-group-option input {
+
+    position: absolute;
+
+    opacity: 0;
+}
+
+
+.blood-group-card {
+
+    min-height: 52px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    transition: var(--transition);
+
+    background: #fff;
+}
+
+
+.blood-group-card strong {
+
+    color: var(--text-dark);
+
+    font-family: Poppins, sans-serif;
+
+    font-size: 13px;
+}
+
+
+.blood-group-card span {
+
+    color: var(--text-muted);
+
+    font-size: 8px;
+}
+
+
+.blood-group-option:hover .blood-group-card {
+
+    border-color: #fecaca;
+}
+
+
+.blood-group-option input:checked + .blood-group-card {
+
+    background: var(--primary-soft);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 2px rgba(220,38,38,0.05);
+}
+
+
+.blood-group-option input:checked + .blood-group-card strong,
+.blood-group-option input:checked + .blood-group-card span {
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   FILE UPLOAD
+   ========================================================= */
+
+.file-upload {
+
+    border: 1px dashed #cbd5e1;
+
+    border-radius: 11px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: #fafafa;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.file-upload:hover {
+
+    border-color: var(--primary);
+
+    background: var(--primary-soft);
+}
+
+
+.file-upload i {
+
+    display: block;
+
+    font-size: 25px;
+
+    color: var(--primary);
+
+    margin-bottom: 7px;
+}
+
+
+.file-upload strong {
+
+    display: block;
+
+    color: var(--text-dark);
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+
+.file-upload span {
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+.file-upload input {
+
+    display: none;
+}
+
+
+/* =========================================================
+   FORM ACTIONS
+   ========================================================= */
+
+.form-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    padding: 18px 23px;
+
+    border-top: 1px solid var(--border);
+
+    background: #fafbfc;
+}
+
+
+.form-actions-left {
+
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.form-btn {
+
+    height: 40px;
+
+    padding: 0 17px;
+
+    border-radius: 8px;
+
+    border: 1px solid transparent;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+}
+
+
+.form-btn-primary {
+
+    background: var(--primary);
+
+    color: #fff;
+
+    box-shadow:
+        0 6px 15px rgba(220,38,38,0.16);
+}
+
+
+.form-btn-primary:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-1px);
+}
+
+
+.form-btn-secondary {
+
+    background: #fff;
+
+    border-color: var(--border);
+
+    color: var(--text-dark);
+}
+
+
+.form-btn-secondary:hover {
+
+    border-color: #cbd5e1;
+
+    background: #f8fafc;
+}
+
+
+.form-btn-danger {
+
+    background: #fff;
+
+    color: var(--danger);
+
+    border-color: #fecaca;
+}
+
+
+.form-btn-danger:hover {
+
+    background: #fef2f2;
+}
+
+
+/* =========================================================
+   ALERT
+   ========================================================= */
+
+.form-alert {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    border-radius: 9px;
+
+    margin-bottom: 20px;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+}
+
+
+.form-alert i {
+
+    font-size: 14px;
+}
+
+
+.form-alert-success {
+
+    background: #ecfdf5;
+
+    border: 1px solid #a7f3d0;
+
+    color: #047857;
+}
+
+
+.form-alert-danger {
+
+    background: #fef2f2;
+
+    border: 1px solid #fecaca;
+
+    color: #b91c1c;
+}
+
+
+.form-alert-warning {
+
+    background: #fffbeb;
+
+    border: 1px solid #fde68a;
+
+    color: #b45309;
+}
+
+
+.form-alert-info {
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    color: #1d4ed8;
+}
+
+
+/* =========================================================
+   FORM RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .form-page {
+
+        padding: 20px;
+    }
+
+    .form-grid-3 {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .form-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .form-grid,
+    .form-grid-3 {
+
+        grid-template-columns: 1fr;
+    }
+
+    .form-full {
+
+        grid-column: auto;
+    }
+
+    .blood-group-grid {
+
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .form-card-body {
+
+        padding: 18px;
+    }
+
+    .form-actions {
+
+        padding: 15px 18px;
+
+        flex-wrap: wrap;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .form-page {
+
+        padding: 14px;
+    }
+
+    .blood-group-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .form-btn {
+
+        width: 100%;
+    }
+
+}
+/* =========================================================
+   BLOODCARE
+   ADMIN FORM SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   FORM LAYOUT
+   ========================================================= */
+
+.form-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        280px;
+
+    gap: 17px;
+
+    align-items: start;
+
+}
+
+
+.form-main {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+
+}
+
+
+.form-sidebar {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    position: sticky;
+
+    top: 90px;
+
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.form-card {
+
+    overflow: hidden;
+
+}
+
+
+.form-card-body {
+
+    padding: 20px;
+
+}
+
+
+/* =========================================================
+   FORM GRID
+   ========================================================= */
+
+.form-grid-2 {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 5px 18px;
+
+}
+
+
+.form-grid-2 .full {
+
+    grid-column: 1 / -1;
+
+}
+
+
+/* =========================================================
+   INPUT ICON
+   ========================================================= */
+
+.input-icon {
+
+    position: relative;
+
+}
+
+
+.input-icon > i {
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    z-index: 2;
+
+}
+
+
+.input-icon .form-control {
+
+    padding-left: 38px;
+
+}
+
+
+/* =========================================================
+   PHOTO UPLOAD
+   ========================================================= */
+
+.photo-upload {
+
+    padding: 25px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.photo-preview {
+
+    width: 105px;
+
+    height: 105px;
+
+    padding: 4px;
+
+    border-radius: 50%;
+
+    border: 1px dashed #cbd5e1;
+
+    background: #f8fafc;
+
+    margin-bottom: 15px;
+
+}
+
+
+.photo-preview img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+}
+
+
+.upload-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border-radius: 8px;
+
+    background: #fff1f2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecaca;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all .2s ease;
+
+}
+
+
+.upload-btn:hover {
+
+    background: #fee2e2;
+
+}
+
+
+.photo-upload small {
+
+    margin-top: 8px;
+
+    color: #94a3b8;
+
+    font-size: 6px;
+
+}
+
+
+/* =========================================================
+   INFO BOX
+   ========================================================= */
+
+.form-info-box {
+
+    padding: 13px;
+
+    display: flex;
+
+    gap: 10px;
+
+    background: #eff6ff;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 11px;
+
+}
+
+
+.form-info-icon {
+
+    width: 28px;
+
+    height: 28px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+}
+
+
+.form-info-box strong {
+
+    display: block;
+
+    color: #1e3a8a;
+
+    font-size: 8px;
+
+    margin-bottom: 3px;
+
+}
+
+
+.form-info-box p {
+
+    color: #3b82f6;
+
+    font-size: 7px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   FORM ACTION
+   ========================================================= */
+
+.form-action-card {
+
+    padding: 15px;
+
+    background: #fff;
+
+    border: 1px solid #e9edf2;
+
+    border-radius: 13px;
+
+    box-shadow: 0 4px 18px rgba(15,23,42,.035);
+
+}
+
+
+.form-action-card .btn {
+
+    margin-bottom: 8px;
+
+}
+
+
+.form-action-card .btn:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .form-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-sidebar {
+
+        position: static;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0,1fr));
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .form-grid-2 {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-grid-2 .full {
+
+        grid-column: auto;
+
+    }
+
+    .form-sidebar {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .form-card-body {
+
+        padding: 17px;
+
+    }
+
+}

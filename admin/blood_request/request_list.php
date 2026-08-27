@@ -1,716 +1,1979 @@
+<?php
+/* =========================================================
+   BLOODCARE
+   ADMIN - BLOOD REQUEST LIST
+   UI ONLY
+   ========================================================= */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Blood Request List | BloodCare</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Blood Requests | BloodCare Admin</title>
 
+<!-- Bootstrap Icons -->
 <link rel="stylesheet"
-href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
+<!-- Global CSS -->
+<link rel="stylesheet"
+      href="../../assets/css/style.css">
 
-<link rel="stylesheet" href="../../assets/css/style.css">
+<!-- Admin Dashboard CSS -->
+<link rel="stylesheet"
+      href="../../assets/css/dashboard.css">
 
-<style>
+<!-- Admin Inner Pages CSS -->
+<link rel="stylesheet"
+      href="../../assets/css/admin-pages.css">
 
-body{
-    background:#f4f7fc;
-    font-family:'Poppins',sans-serif;
-}
+    <style>
 
-.main{
-    margin-left:260px;
-    padding:35px;
-}
+        /* =====================================================
+           BLOOD REQUEST PAGE
+           ===================================================== */
 
-/* Header */
+        .request-page {
+            padding: 25px 28px 35px;
+            max-width: 1700px;
+            margin: auto;
+        }
 
-.page-header{
 
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+        /* =====================================================
+           PAGE HEADER
+           ===================================================== */
 
-}
+        .request-page-header {
 
-/* Cards */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.stat-card{
+            gap: 20px;
 
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+            margin-bottom: 25px;
+        }
 
-}
 
-.stat-card:hover{
+        .request-title-area h1 {
 
-    transform:translateY(-5px);
+            font-family: Poppins, sans-serif;
 
-}
+            font-size: 23px;
 
-.icon-box{
+            color: var(--dashboard-text);
 
-    width:60px;
-    height:60px;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:25px;
-    margin-bottom:15px;
+            margin-bottom: 5px;
+        }
 
-}
 
-.red{
-background:#dc3545;
-}
+        .request-title-area p {
 
-.green{
-background:#198754;
-}
+            font-size: 9px;
 
-.orange{
-background:#fd7e14;
-}
+            color: var(--dashboard-muted);
 
-.blue{
-background:#0d6efd;
-}
+            margin: 0;
+        }
 
-.stat-card h3{
 
-font-weight:700;
+        .request-breadcrumb {
 
-}
+            display: flex;
+            align-items: center;
 
-.stat-card p{
+            gap: 6px;
 
-color:#777;
+            margin-bottom: 7px;
 
-margin-bottom:0;
+            font-size: 7px;
 
-}
+            color: #9ca3af;
+        }
 
-/* Search */
 
-.search-card{
+        .request-breadcrumb i {
 
-background:white;
-padding:30px;
-border-radius:20px;
-margin-top:35px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+            color: var(--dashboard-red);
 
-}
+        }
 
 
+        .request-header-actions {
 
-.form-control,
-.form-select{
+            display: flex;
 
-height:52px;
-border-radius:12px;
+            align-items: center;
 
-}
+            gap: 8px;
+        }
 
-.search-btn{
 
-height:52px;
-border-radius:12px;
-background:#dc3545;
-color:white;
-font-weight:600;
+        /* =====================================================
+           QUICK STATS
+           ===================================================== */
 
-}
+        .request-stats {
 
-.search-btn:hover{
+            display: grid;
 
-background:#bb2d3b;
-color:white;
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
 
-}
+            gap: 14px;
 
-/* ===========================
-      TABLE DESIGN
-===========================*/
+            margin-bottom: 18px;
+        }
 
-.table-card{
 
-    background:#fff;
+        .request-stat {
 
-    margin-top:35px;
+            background: #fff;
 
-    padding:30px;
+            border: 1px solid var(--dashboard-border);
 
-    border-radius:20px;
+            border-radius: 13px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+            padding: 16px;
 
-}
+            display: flex;
 
-.table thead th{
+            align-items: center;
 
-    font-weight:600;
+            gap: 12px;
 
-}
+            box-shadow: var(--dashboard-shadow);
 
-.table tbody tr{
+            transition: .25s ease;
+        }
 
-    transition:.3s;
 
-}
+        .request-stat:hover {
 
-.table tbody tr:hover{
+            transform: translateY(-2px);
 
-    background:#fff5f5;
+            box-shadow:
+                0 10px 25px rgba(15,23,42,.06);
+        }
 
-}
 
-.table td{
+        .request-stat-icon {
 
-    vertical-align:middle;
+            width: 40px;
+            height: 40px;
 
-}
+            border-radius: 10px;
 
-.btn-sm{
+            display: flex;
 
-    margin:2px;
+            align-items: center;
+            justify-content: center;
 
-}
+            font-size: 15px;
 
-</style>
+            flex-shrink: 0;
+        }
+
+
+        .request-stat-icon.red {
+
+            background: #fff1f2;
+            color: #dc2626;
+        }
+
+
+        .request-stat-icon.orange {
+
+            background: #fffbeb;
+            color: #d97706;
+        }
+
+
+        .request-stat-icon.blue {
+
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+
+        .request-stat-icon.green {
+
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+
+        .request-stat-content span {
+
+            display: block;
+
+            color: #8b95a5;
+
+            font-size: 7px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .request-stat-content strong {
+
+            display: block;
+
+            color: var(--dashboard-text);
+
+            font-family: Poppins, sans-serif;
+
+            font-size: 19px;
+
+            line-height: 1;
+        }
+
+
+        /* =====================================================
+           FILTER CARD
+           ===================================================== */
+
+        .request-filter-card {
+
+            background: #fff;
+
+            border: 1px solid var(--dashboard-border);
+
+            border-radius: 13px;
+
+            box-shadow: var(--dashboard-shadow);
+
+            padding: 15px;
+
+            margin-bottom: 16px;
+        }
+
+
+        .filter-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                1fr
+                auto;
+
+            gap: 10px;
+
+            align-items: end;
+        }
+
+
+        .filter-field label {
+
+            display: block;
+
+            font-size: 7px;
+
+            font-weight: 700;
+
+            color: #687386;
+
+            margin-bottom: 6px;
+        }
+
+
+        .filter-field input,
+        .filter-field select {
+
+            width: 100%;
+
+            height: 38px;
+
+            padding: 0 11px;
+
+            border: 1px solid #e9edf2;
+
+            border-radius: 8px;
+
+            background: #f8fafc;
+
+            color: var(--dashboard-text);
+
+            outline: none;
+
+            font-size: 8px;
+
+            font-family: inherit;
+
+            transition: .2s ease;
+        }
+
+
+        .filter-field input:focus,
+        .filter-field select:focus {
+
+            background: #fff;
+
+            border-color: #fecaca;
+
+            box-shadow:
+                0 0 0 3px rgba(220,38,38,.06);
+        }
+
+
+        .filter-actions {
+
+            display: flex;
+
+            gap: 7px;
+        }
+
+
+        .filter-btn {
+
+            height: 38px;
+
+            padding: 0 13px;
+
+            border-radius: 8px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 5px;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+
+        .filter-btn-primary {
+
+            background: var(--dashboard-red);
+
+            color: #fff;
+        }
+
+
+        .filter-btn-primary:hover {
+
+            background: var(--dashboard-red-dark);
+        }
+
+
+        .filter-btn-light {
+
+            background: #f8fafc;
+
+            color: #64748b;
+
+            border: 1px solid #e9edf2;
+        }
+
+
+        .filter-btn-light:hover {
+
+            background: #f1f5f9;
+        }
+
+
+        /* =====================================================
+           REQUEST TABLE CARD
+           ===================================================== */
+
+        .request-table-card {
+
+            background: #fff;
+
+            border: 1px solid var(--dashboard-border);
+
+            border-radius: 13px;
+
+            box-shadow: var(--dashboard-shadow);
+
+            overflow: hidden;
+        }
+
+
+        .request-table-header {
+
+            min-height: 65px;
+
+            padding: 14px 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+
+        .request-table-header h3 {
+
+            font-family: Poppins, sans-serif;
+
+            font-size: 11px;
+
+            color: var(--dashboard-text);
+
+            margin-bottom: 3px;
+        }
+
+
+        .request-table-header p {
+
+            font-size: 7px;
+
+            color: var(--dashboard-muted);
+
+            margin: 0;
+        }
+
+
+        .request-count {
+
+            padding: 5px 8px;
+
+            border-radius: 20px;
+
+            background: #fff1f2;
+
+            color: #dc2626;
+
+            font-size: 7px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           TABLE
+           ===================================================== */
+
+        .request-table-wrapper {
+
+            overflow-x: auto;
+        }
+
+
+        .request-table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 950px;
+        }
+
+
+        .request-table th {
+
+            padding: 11px 17px;
+
+            text-align: left;
+
+            background: #fafbfc;
+
+            border-bottom: 1px solid #edf0f4;
+
+            color: #98a1ae;
+
+            font-size: 6px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .5px;
+
+            white-space: nowrap;
+        }
+
+
+        .request-table td {
+
+            padding: 12px 17px;
+
+            border-bottom: 1px solid #f1f3f6;
+
+            color: #687386;
+
+            font-size: 7px;
+
+            vertical-align: middle;
+        }
+
+
+        .request-table tbody tr {
+
+            transition: .2s ease;
+        }
+
+
+        .request-table tbody tr:hover {
+
+            background: #fffafa;
+        }
+
+
+        .request-table tbody tr:last-child td {
+
+            border-bottom: none;
+        }
+
+
+        /* =====================================================
+           REQUEST ID
+           ===================================================== */
+
+        .request-id {
+
+            color: #64748b;
+
+            font-weight: 700;
+
+            font-size: 7px;
+        }
+
+
+        /* =====================================================
+           PATIENT
+           ===================================================== */
+
+        .patient-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .patient-avatar {
+
+            width: 31px;
+            height: 31px;
+
+            border-radius: 8px;
+
+            background: #fff1f2;
+
+            color: #dc2626;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 11px;
+
+            flex-shrink: 0;
+        }
+
+
+        .patient-info strong {
+
+            display: block;
+
+            color: var(--dashboard-text);
+
+            font-size: 8px;
+
+            margin-bottom: 2px;
+        }
+
+
+        .patient-info span {
+
+            display: block;
+
+            color: #9ca3af;
+
+            font-size: 6px;
+        }
+
+
+        /* =====================================================
+           BLOOD TYPE
+           ===================================================== */
+
+        .request-blood {
+
+            width: 32px;
+            height: 32px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 8px;
+
+            background: #fff1f2;
+
+            color: #dc2626;
+
+            font-family: Poppins, sans-serif;
+
+            font-size: 8px;
+
+            font-weight: 800;
+        }
+
+
+        /* =====================================================
+           LOCATION
+           ===================================================== */
+
+        .location-info {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            color: #687386;
+        }
+
+
+        .location-info i {
+
+            color: #dc2626;
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           URGENCY
+           ===================================================== */
+
+        .urgency {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 4px;
+
+            padding: 4px 7px;
+
+            border-radius: 20px;
+
+            font-size: 6px;
+
+            font-weight: 800;
+        }
+
+
+        .urgency.high {
+
+            background: #fef2f2;
+
+            color: #dc2626;
+        }
+
+
+        .urgency.medium {
+
+            background: #fffbeb;
+
+            color: #b45309;
+        }
+
+
+        .urgency.normal {
+
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        .urgency i {
+
+            font-size: 6px;
+        }
+
+
+        /* =====================================================
+           STATUS
+           ===================================================== */
+
+        .request-status {
+
+            display: inline-flex;
+
+            padding: 4px 8px;
+
+            border-radius: 20px;
+
+            font-size: 6px;
+
+            font-weight: 800;
+        }
+
+
+        .request-status.pending {
+
+            background: #fffbeb;
+
+            color: #b45309;
+        }
+
+
+        .request-status.approved {
+
+            background: #eff6ff;
+
+            color: #2563eb;
+        }
+
+
+        .request-status.fulfilled {
+
+            background: #ecfdf5;
+
+            color: #059669;
+        }
+
+
+        .request-status.rejected {
+
+            background: #fef2f2;
+
+            color: #dc2626;
+        }
+
+
+        /* =====================================================
+           ACTIONS
+           ===================================================== */
+
+        .request-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .request-action {
+
+            width: 28px;
+            height: 28px;
+
+            border-radius: 7px;
+
+            border: 1px solid #edf0f4;
+
+            background: #fff;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 9px;
+
+            cursor: pointer;
+
+            transition: .2s ease;
+        }
+
+
+        .request-action.view {
+
+            color: #2563eb;
+        }
+
+
+        .request-action.approve {
+
+            color: #059669;
+        }
+
+
+        .request-action.delete {
+
+            color: #dc2626;
+        }
+
+
+        .request-action:hover {
+
+            transform: translateY(-1px);
+
+            background: #f8fafc;
+        }
+
+
+        /* =====================================================
+           PAGINATION
+           ===================================================== */
+
+        .request-pagination {
+
+            padding: 13px 17px;
+
+            border-top: 1px solid #f0f2f5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .pagination-info {
+
+            color: #9ca3af;
+
+            font-size: 6px;
+        }
+
+
+        .pagination-buttons {
+
+            display: flex;
+
+            gap: 4px;
+        }
+
+
+        .page-btn {
+
+            min-width: 27px;
+
+            height: 27px;
+
+            padding: 0 7px;
+
+            border: 1px solid #e9edf2;
+
+            background: #fff;
+
+            border-radius: 6px;
+
+            color: #64748b;
+
+            font-size: 7px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+        }
+
+
+        .page-btn:hover {
+
+            border-color: #fecaca;
+
+            color: #dc2626;
+        }
+
+
+        .page-btn.active {
+
+            background: #dc2626;
+
+            border-color: #dc2626;
+
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 1100px) {
+
+            .request-stats {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+
+            .filter-row {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .request-page {
+
+                padding: 20px 16px;
+            }
+
+
+            .request-page-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+
+            .request-header-actions {
+
+                width: 100%;
+            }
+
+
+            .request-header-actions .btn {
+
+                flex: 1;
+            }
+
+
+            .request-stats {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .filter-row {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .filter-actions {
+
+                width: 100%;
+            }
+
+
+            .filter-btn {
+
+                flex: 1;
+            }
+
+
+            .request-pagination {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<?php include '../../includes/admin_sidebar.php'; ?>
 
+<div class="admin-app">
 
-<div class="main">
 
-<!-- Header -->
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
 
-<div class="page-header">
+    <?php include '../../includes/admin_sidebar.php'; ?>
 
-<div class="d-flex justify-content-between align-items-center">
 
-<div>
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
 
-<h2 class="fw-bold">
+    <main class="admin-main">
 
-<i class="bi bi-droplet-half text-danger"></i>
 
-Blood Request Management
+        <!-- =================================================
+             NAVBAR
+             ================================================= -->
 
-</h2>
+        <?php include '../../includes/navbar.php'; ?>
 
-<p class="text-muted mb-0">
 
-Manage all blood requests from one place
+        <!-- =================================================
+             PAGE CONTENT
+             ================================================= -->
 
-</p>
+        <section class="request-page">
 
-</div>
 
-<button class="btn btn-danger rounded-pill px-4">
+            <!-- PAGE HEADER -->
 
-<i class="bi bi-download"></i>
+            <div class="request-page-header">
 
-Export
+                <div class="request-title-area">
 
-</button>
+                    <div class="request-breadcrumb">
 
-</div>
+                        <span>Admin</span>
 
-</div>
+                        <i class="bi bi-chevron-right"></i>
 
-<!-- Statistics -->
+                        <span>Blood Requests</span>
 
-<div class="row g-4">
+                    </div>
 
-<div class="col-lg-3">
 
-<div class="stat-card">
+                    <h1>Blood Requests</h1>
 
-<div class="icon-box red">
+                    <p>
+                        Manage and monitor all blood requests submitted by users.
+                    </p>
 
-<i class="bi bi-droplet-fill"></i>
+                </div>
 
-</div>
 
-<h3>125</h3>
+                <div class="request-header-actions">
 
-<p>Total Requests</p>
+                    <a
+                        href="emergency_request.php"
+                        class="btn btn-danger btn-sm"
+                    >
 
-</div>
+                        <i class="bi bi-exclamation-triangle-fill"></i>
 
-</div>
+                        Emergency Requests
 
-<div class="col-lg-3">
+                    </a>
 
-<div class="stat-card">
+                </div>
 
-<div class="icon-box green">
+            </div>
 
-<i class="bi bi-check-circle-fill"></i>
 
-</div>
+            <!-- =================================================
+                 STATS
+                 ================================================= -->
 
-<h3>78</h3>
+            <div class="request-stats">
 
-<p>Accepted</p>
 
-</div>
+                <div class="request-stat">
 
-</div>
+                    <div class="request-stat-icon red">
 
-<div class="col-lg-3">
+                        <i class="bi bi-droplet-fill"></i>
 
-<div class="stat-card">
+                    </div>
 
-<div class="icon-box orange">
+                    <div class="request-stat-content">
 
-<i class="bi bi-hourglass-split"></i>
+                        <span>Total Requests</span>
 
-</div>
+                        <strong>248</strong>
 
-<h3>32</h3>
+                    </div>
 
-<p>Pending</p>
+                </div>
 
-</div>
 
-</div>
+                <div class="request-stat">
 
-<div class="col-lg-3">
+                    <div class="request-stat-icon orange">
 
-<div class="stat-card">
+                        <i class="bi bi-hourglass-split"></i>
 
-<div class="icon-box blue">
+                    </div>
 
-<i class="bi bi-x-circle-fill"></i>
+                    <div class="request-stat-content">
 
-</div>
+                        <span>Pending</span>
 
-<h3>15</h3>
+                        <strong>32</strong>
 
-<p>Rejected</p>
+                    </div>
 
-</div>
+                </div>
 
-</div>
 
-</div>
+                <div class="request-stat">
 
-<!-- Search -->
+                    <div class="request-stat-icon blue">
 
-<div class="search-card">
+                        <i class="bi bi-arrow-repeat"></i>
 
-<h4 class="fw-bold mb-4">
+                    </div>
 
-Search Blood Request
+                    <div class="request-stat-content">
 
-</h4>
+                        <span>Processing</span>
 
-<div class="row g-3">
+                        <strong>18</strong>
 
-<div class="col-md-3">
+                    </div>
 
-<input type="text"
-class="form-control"
-placeholder="Patient Name">
+                </div>
 
-</div>
 
-<div class="col-md-3">
+                <div class="request-stat">
 
-<select class="form-select">
+                    <div class="request-stat-icon green">
 
-<option>Blood Group</option>
+                        <i class="bi bi-check-circle-fill"></i>
 
-<option>A+</option>
+                    </div>
 
-<option>A-</option>
+                    <div class="request-stat-content">
 
-<option>B+</option>
+                        <span>Fulfilled</span>
 
-<option>B-</option>
+                        <strong>198</strong>
 
-<option>AB+</option>
+                    </div>
 
-<option>AB-</option>
+                </div>
 
-<option>O+</option>
 
-<option>O-</option>
+            </div>
 
-</select>
 
-</div>
+            <!-- =================================================
+                 FILTER
+                 ================================================= -->
 
-<div class="col-md-3">
+            <div class="request-filter-card">
 
-<select class="form-select">
+                <div class="filter-row">
 
-<option>Status</option>
 
-<option>Pending</option>
+                    <div class="filter-field">
 
-<option>Accepted</option>
+                        <label>Search Request</label>
 
-<option>Rejected</option>
+                        <input
+                            type="text"
+                            placeholder="Search by patient name or request ID..."
+                        >
 
-</select>
+                    </div>
 
-</div>
 
-<div class="col-md-3">
+                    <div class="filter-field">
 
-<button class="btn search-btn w-100">
+                        <label>Blood Group</label>
 
-<i class="bi bi-search"></i>
+                        <select>
 
-Search
+                            <option>All Blood Groups</option>
 
-</button>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
 
-</div>
+                        </select>
 
-</div>
+                    </div>
 
-</div>
-<!-- =========================
-     REQUEST TABLE
-========================== -->
 
-<div class="table-card mt-4">
+                    <div class="filter-field">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <label>Urgency</label>
 
-        <div>
-            <h4 class="fw-bold mb-1">
-                <i class="bi bi-list-check text-danger"></i>
-                Blood Request List
-            </h4>
-            <small class="text-muted">
-                Showing all blood requests
-            </small>
-        </div>
+                        <select>
 
-        <button class="btn btn-outline-danger rounded-pill">
-            <i class="bi bi-arrow-clockwise"></i>
-            Refresh
-        </button>
+                            <option>All Urgency</option>
 
-    </div>
+                            <option>High</option>
 
-    <div class="table-responsive">
+                            <option>Medium</option>
 
-        <table class="table table-hover align-middle">
+                            <option>Normal</option>
 
-            <thead class="table-danger">
+                        </select>
 
-                <tr>
+                    </div>
 
-                    <th>#</th>
 
-                    <th>Patient</th>
+                    <div class="filter-field">
 
-                    <th>Blood</th>
+                        <label>Status</label>
 
-                    <th>Hospital</th>
+                        <select>
 
-                    <th>Required Date</th>
+                            <option>All Status</option>
 
-                    <th>Status</th>
+                            <option>Pending</option>
 
-                    <th width="260">
-                        Action
-                    </th>
+                            <option>Approved</option>
 
-                </tr>
+                            <option>Fulfilled</option>
 
-            </thead>
+                            <option>Rejected</option>
 
-            <tbody>
+                        </select>
 
-                <!-- Row 1 -->
+                    </div>
 
-                <tr>
 
-                    <td>1</td>
+                    <div class="filter-actions">
 
-                    <td>
+                        <button
+                            class="filter-btn filter-btn-primary"
+                        >
 
-                        <div class="d-flex align-items-center">
+                            <i class="bi bi-funnel-fill"></i>
 
-                            <img src="../../assets/images/default-user.png"
-                                 width="45"
-                                 height="45"
-                                 class="rounded-circle me-3">
-
-                            <div>
-
-                                <b>Rahim Ahmed</b>
-
-                                <br>
-
-                                <small class="text-muted">
-                                    01700000000
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-danger px-3 py-2">
-
-                            A+
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        Dhaka Medical College
-
-                    </td>
-
-                    <td>
-
-                        15 Aug 2026
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-warning text-dark px-3 py-2">
-
-                            Pending
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <button class="btn btn-primary btn-sm">
-
-                            <i class="bi bi-eye-fill"></i>
+                            Filter
 
                         </button>
 
-                        <button class="btn btn-success btn-sm">
 
-                            <i class="bi bi-check-lg"></i>
+                        <button
+                            class="filter-btn filter-btn-light"
+                            title="Reset"
+                        >
 
-                        </button>
-
-                        <button class="btn btn-warning btn-sm text-white">
-
-                            <i class="bi bi-x-lg"></i>
+                            <i class="bi bi-arrow-clockwise"></i>
 
                         </button>
 
-                        <button class="btn btn-danger btn-sm">
+                    </div>
 
-                            <i class="bi bi-trash-fill"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REQUEST TABLE
+                 ================================================= -->
+
+            <div class="request-table-card">
+
+
+                <div class="request-table-header">
+
+                    <div>
+
+                        <h3>Recent Blood Requests</h3>
+
+                        <p>
+                            Complete list of submitted blood requests
+                        </p>
+
+                    </div>
+
+
+                    <span class="request-count">
+
+                        248 Requests
+
+                    </span>
+
+                </div>
+
+
+                <div class="request-table-wrapper">
+
+
+                    <table class="request-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+
+                                <th>Patient</th>
+
+                                <th>Blood</th>
+
+                                <th>Hospital / Location</th>
+
+                                <th>Units</th>
+
+                                <th>Urgency</th>
+
+                                <th>Date</th>
+
+                                <th>Status</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <!-- ROW 1 -->
+
+                            <tr>
+
+                                <td>
+
+                                    <span class="request-id">
+                                        #BR-0248
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="patient-info">
+
+                                        <div class="patient-avatar">
+
+                                            <i class="bi bi-person-fill"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Rahim Ahmed
+                                            </strong>
+
+                                            <span>
+                                                01712XXXXXX
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-blood">
+                                        O+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="location-info">
+
+                                        <i class="bi bi-geo-alt-fill"></i>
+
+                                        Dhaka Medical College
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <strong>2</strong> Unit
+                                </td>
+
+
+                                <td>
+
+                                    <span class="urgency high">
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        High
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    26 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-status pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="request-actions">
+
+                                        <button
+                                            class="request-action view"
+                                            title="View"
+                                        >
+
+                                            <i class="bi bi-eye"></i>
+
+                                        </button>
+
+
+                                        <button
+                                            class="request-action approve"
+                                            title="Approve"
+                                        >
+
+                                            <i class="bi bi-check-lg"></i>
+
+                                        </button>
+
+
+                                        <button
+                                            class="request-action delete"
+                                            title="Delete"
+                                        >
+
+                                            <i class="bi bi-trash3"></i>
+
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 2 -->
+
+                            <tr>
+
+                                <td>
+                                    <span class="request-id">
+                                        #BR-0247
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="patient-info">
+
+                                        <div class="patient-avatar">
+
+                                            <i class="bi bi-person-fill"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Nusrat Jahan
+                                            </strong>
+
+                                            <span>
+                                                01819XXXXXX
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-blood">
+                                        A-
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="location-info">
+
+                                        <i class="bi bi-geo-alt-fill"></i>
+
+                                        Square Hospital
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <strong>1</strong> Unit
+                                </td>
+
+
+                                <td>
+
+                                    <span class="urgency medium">
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        Medium
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    26 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-status approved">
+                                        Approved
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="request-actions">
+
+                                        <button class="request-action view">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+
+                                        <button class="request-action delete">
+                                            <i class="bi bi-trash3"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 3 -->
+
+                            <tr>
+
+                                <td>
+                                    <span class="request-id">
+                                        #BR-0246
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="patient-info">
+
+                                        <div class="patient-avatar">
+
+                                            <i class="bi bi-person-fill"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Arif Hossain
+                                            </strong>
+
+                                            <span>
+                                                01911XXXXXX
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-blood">
+                                        B+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="location-info">
+
+                                        <i class="bi bi-geo-alt-fill"></i>
+
+                                        United Hospital
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <strong>3</strong> Units
+                                </td>
+
+
+                                <td>
+
+                                    <span class="urgency normal">
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        Normal
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    25 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-status fulfilled">
+                                        Fulfilled
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="request-actions">
+
+                                        <button class="request-action view">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 4 -->
+
+                            <tr>
+
+                                <td>
+                                    <span class="request-id">
+                                        #BR-0245
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="patient-info">
+
+                                        <div class="patient-avatar">
+
+                                            <i class="bi bi-person-fill"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Sohana Akter
+                                            </strong>
+
+                                            <span>
+                                                01628XXXXXX
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-blood">
+                                        AB+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="location-info">
+
+                                        <i class="bi bi-geo-alt-fill"></i>
+
+                                        LabAid Hospital
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <strong>2</strong> Units
+                                </td>
+
+
+                                <td>
+
+                                    <span class="urgency high">
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        High
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    25 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-status approved">
+                                        Approved
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="request-actions">
+
+                                        <button class="request-action view">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+
+                                        <button class="request-action approve">
+                                            <i class="bi bi-check-lg"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <!-- ROW 5 -->
+
+                            <tr>
+
+                                <td>
+                                    <span class="request-id">
+                                        #BR-0244
+                                    </span>
+                                </td>
+
+
+                                <td>
+
+                                    <div class="patient-info">
+
+                                        <div class="patient-avatar">
+
+                                            <i class="bi bi-person-fill"></i>
+
+                                        </div>
+
+                                        <div>
+
+                                            <strong>
+                                                Tanvir Hasan
+                                            </strong>
+
+                                            <span>
+                                                01521XXXXXX
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-blood">
+                                        B-
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="location-info">
+
+                                        <i class="bi bi-geo-alt-fill"></i>
+
+                                        Anwer Khan Modern
+
+                                    </div>
+
+                                </td>
+
+
+                                <td>
+                                    <strong>1</strong> Unit
+                                </td>
+
+
+                                <td>
+
+                                    <span class="urgency medium">
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        Medium
+
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    24 Aug 2026
+                                </td>
+
+
+                                <td>
+
+                                    <span class="request-status rejected">
+                                        Rejected
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="request-actions">
+
+                                        <button class="request-action view">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- PAGINATION -->
+
+                <div class="request-pagination">
+
+                    <span class="pagination-info">
+
+                        Showing 1–5 of 248 requests
+
+                    </span>
+
+
+                    <div class="pagination-buttons">
+
+                        <button class="page-btn">
+
+                            <i class="bi bi-chevron-left"></i>
 
                         </button>
 
-                    </td>
+                        <button class="page-btn active">1</button>
 
-                </tr>
+                        <button class="page-btn">2</button>
 
-                <!-- Row 2 -->
+                        <button class="page-btn">3</button>
 
-                <tr>
+                        <button class="page-btn">...</button>
 
-                    <td>2</td>
+                        <button class="page-btn">50</button>
 
-                    <td>
+                        <button class="page-btn">
 
-                        <div class="d-flex align-items-center">
-
-                            <img src="../../assets/images/default-user.png"
-                                 width="45"
-                                 height="45"
-                                 class="rounded-circle me-3">
-
-                            <div>
-
-                                <b>Nusrat Jahan</b>
-
-                                <br>
-
-                                <small class="text-muted">
-
-                                    01800000000
-
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-primary px-3 py-2">
-
-                            O-
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        Square Hospital
-
-                    </td>
-
-                    <td>
-
-                        18 Aug 2026
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-success px-3 py-2">
-
-                            Accepted
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <button class="btn btn-primary btn-sm">
-
-                            <i class="bi bi-eye-fill"></i>
+                            <i class="bi bi-chevron-right"></i>
 
                         </button>
 
-                        <button class="btn btn-danger btn-sm">
+                    </div>
 
-                            <i class="bi bi-trash-fill"></i>
+                </div>
 
-                        </button>
 
-                    </td>
+            </div>
 
-                </tr>
 
-                <!-- Row 3 -->
+        </section>
 
-                <tr>
 
-                    <td>3</td>
-
-                    <td>
-
-                        <div class="d-flex align-items-center">
-
-                            <img src="../../assets/images/default-user.png"
-                                 width="45"
-                                 height="45"
-                                 class="rounded-circle me-3">
-
-                            <div>
-
-                                <b>Sakib Hasan</b>
-
-                                <br>
-
-                                <small class="text-muted">
-
-                                    01900000000
-
-                                </small>
-
-                            </div>
-
-                        </div>
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-dark px-3 py-2">
-
-                            AB+
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        United Hospital
-
-                    </td>
-
-                    <td>
-
-                        20 Aug 2026
-
-                    </td>
-
-                    <td>
-
-                        <span class="badge bg-danger px-3 py-2">
-
-                            Rejected
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <button class="btn btn-primary btn-sm">
-
-                            <i class="bi bi-eye-fill"></i>
-
-                        </button>
-
-                        <button class="btn btn-danger btn-sm">
-
-                            <i class="bi bi-trash-fill"></i>
-
-                        </button>
-
-                    </td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
+    </main>
 
 </div>
+
+
+<!-- Dashboard JS -->
+
+<script src="../../assets/js/dashboard.js"></script>
+
+<script src="../../assets/js/script.js"></script>
+
+</body>
+
+</html>

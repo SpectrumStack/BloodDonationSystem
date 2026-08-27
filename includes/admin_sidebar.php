@@ -1,367 +1,556 @@
 <?php
 
-$current = basename($_SERVER['PHP_SELF']);
+$current_page = basename($_SERVER['PHP_SELF']);
+$current_path = $_SERVER['PHP_SELF'];
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN BASE PATH
+|--------------------------------------------------------------------------
+| Automatically calculates how many ../ are needed to return to /admin/
+*/
+
+$admin_position = strpos($current_path, '/admin/');
+
+if ($admin_position !== false) {
+
+    $after_admin = substr(
+        $current_path,
+        $admin_position + strlen('/admin/')
+    );
+
+    $admin_relative_dir = dirname($after_admin);
+
+    if ($admin_relative_dir === '.' || $admin_relative_dir === '') {
+        $admin_base = '';
+    } else {
+        $depth = substr_count(trim($admin_relative_dir, '/'), '/') + 1;
+        $admin_base = str_repeat('../', $depth);
+    }
+
+} else {
+
+    $admin_base = 'admin/';
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| ROOT PATH
+|--------------------------------------------------------------------------
+*/
+
+$root_base = $admin_base . '../';
+
+
+/*
+|--------------------------------------------------------------------------
+| ACTIVE MENU
+|--------------------------------------------------------------------------
+*/
+
+$is_donor_page =
+    strpos($current_path, '/admin/donor/') !== false;
+
+$is_blood_request_page =
+    strpos($current_path, '/admin/blood_request/') !== false
+    && $current_page !== 'emergency_request.php';
+
+$is_emergency_page =
+    $current_page === 'emergency_request.php';
+
+$is_appointment_page =
+    strpos($current_path, '/admin/appointment/') !== false;
+
+$is_stock_page =
+    strpos($current_path, '/admin/stock/') !== false;
+
+$is_camp_page =
+    strpos($current_path, '/admin/camp/') !== false;
+
+$is_notification_page =
+    strpos($current_path, '/admin/notification/') !== false;
 
 ?>
 
-<div class="sidebar">
 
 
+<!-- =========================================================
+     ADMIN SIDEBAR
+     ========================================================= -->
 
+<aside class="admin-sidebar" id="adminSidebar">
 
-<!-- LOGO -->
 
+    <!-- =====================================================
+         SIDEBAR HEADER
+         ===================================================== -->
 
-<div class="logo">
+    <div class="sidebar-logo">
 
-<i class="bi bi-heart-pulse-fill"></i>
+        <a
+            href="<?php echo $root_base; ?>dashboard.php"
+            class="sidebar-logo-link"
+        >
 
-<span>BloodCare</span>
+            <div class="sidebar-logo-icon">
+                <i class="bi bi-droplet-fill"></i>
+            </div>
 
-</div>
+            <div class="sidebar-logo-text">
 
+                <strong>BloodCare</strong>
 
+                <span>
+                    BLOOD DONATION MANAGEMENT
+                </span>
 
+            </div>
 
+        </a>
 
 
-<!-- ADMIN PROFILE -->
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close Sidebar"
+        >
 
+            <i class="bi bi-x-lg"></i>
 
-<div class="admin-profile">
+        </button>
 
+    </div>
 
-<img
-src="../assets/images/default-user.png"
-alt="">
 
 
-<h4>
+    <!-- =====================================================
+         ADMIN PROFILE
+         ===================================================== -->
 
-Administrator
+    <div class="sidebar-profile">
 
-</h4>
+        <img
+            src="<?php echo $admin_base; ?>assets/images/default-user.png"
+            alt="Admin"
+        >
 
+        <div class="sidebar-profile-info">
 
-<p>
+            <strong>System Admin</strong>
 
-System Admin
+            <span>
 
-</p>
+                <i class="bi bi-circle-fill"></i>
 
+                Online
 
-</div>
+            </span>
 
+        </div>
 
 
+        <button
+            type="button"
+            class="profile-menu-btn"
+            title="Profile"
+        >
 
+            <i class="bi bi-three-dots-vertical"></i>
 
+        </button>
 
+    </div>
 
-<!-- MENU -->
 
 
-<ul class="menu">
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
 
+    <nav class="sidebar-navigation">
 
 
+        <!-- =================================================
+             MAIN MENU
+             ================================================= -->
 
-<!-- Dashboard -->
+        <div class="sidebar-section-title">
+            MAIN MENU
+        </div>
 
 
-<li>
+        <ul class="sidebar-menu">
 
-<a
-href="../admin/dashboard.php"
-class="<?=($current=="dashboard.php")?'active':'';?>">
 
-<i class="bi bi-grid-fill"></i>
+            <!-- =================================================
+                 DASHBOARD
+                 ================================================= -->
 
-<span>
+            <li>
 
-Dashboard
+                <a
+                    href="<?php echo $root_base; ?>dashboard.php"
+                    class="<?php echo ($current_page === 'dashboard.php') ? 'active' : ''; ?>"
+                >
 
-</span>
+                    <span class="menu-icon">
+                        <i class="bi bi-grid-1x2-fill"></i>
+                    </span>
 
-</a>
+                    <span>Dashboard</span>
 
-</li>
+                </a>
 
+            </li>
 
 
 
+            <!-- =================================================
+                 DONORS
+                 ================================================= -->
 
+            <li>
 
+                <a
+                    href="<?php echo $admin_base; ?>donor/donor_list.php"
+                    class="<?php echo $is_donor_page ? 'active' : ''; ?>"
+                >
 
+                    <span class="menu-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </span>
 
-<!-- Donor -->
+                    <span>Donors</span>
 
+                    <span class="menu-count">
+                        248
+                    </span>
 
-<li class="dropdown">
+                </a>
 
+            </li>
 
-<div class="dropdown-btn">
 
 
-<div>
+            <!-- =================================================
+                 BLOOD REQUESTS
+                 ================================================= -->
 
-<i class="bi bi-people-fill"></i>
+            <li>
 
-<span>
+                <a
+                    href="<?php echo $admin_base; ?>blood_request/request_list.php"
+                    class="<?php echo $is_blood_request_page ? 'active' : ''; ?>"
+                >
 
-Donor Management
+                    <span class="menu-icon">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                    </span>
 
-</span>
+                    <span>Blood Requests</span>
 
-</div>
+                    <span class="menu-count">
+                        18
+                    </span>
 
+                </a>
 
-<i class="bi bi-chevron-down arrow"></i>
+            </li>
 
 
-</div>
 
+            <!-- =================================================
+                 APPOINTMENTS
+                 ================================================= -->
 
+            <li>
 
+                <a
+                    href="<?php echo $admin_base; ?>appointment/appointment_list.php"
+                    class="<?php echo $is_appointment_page ? 'active' : ''; ?>"
+                >
 
+                    <span class="menu-icon">
 
+                        <i class="bi bi-calendar-check-fill"></i>
 
-<ul class="submenu">
+                    </span>
 
+                    <span>
+                        Appointments
+                    </span>
 
-<li>
+                </a>
 
-<a href="../admin/donor/add_donor.php">
+            </li>
 
-Add Donor
 
-</a>
 
-</li>
+            <!-- =================================================
+                 BLOOD STOCK
+                 ================================================= -->
 
+            <li>
 
+                <a
+                    href="<?php echo $admin_base; ?>stock/blood_stock.php"
+                    class="<?php echo $is_stock_page ? 'active' : ''; ?>"
+                >
 
+                    <span class="menu-icon">
 
-<li>
+                        <i class="bi bi-droplet-half"></i>
 
-<a href="../admin/donor/donor_list.php">
+                    </span>
 
-Donor List
+                    <span>
+                        Blood Stock
+                    </span>
 
-</a>
+                </a>
 
-</li>
+            </li>
 
 
 
+            <!-- =================================================
+                 BLOOD CAMPS
+                 ================================================= -->
 
-<li>
+            <li>
 
-<a href="../admin/donor/update_donor.php">
+                <a
+                    href="<?php echo $admin_base; ?>camp/blood_camp.php"
+                    class="<?php echo $is_camp_page ? 'active' : ''; ?>"
+                >
 
-Update Donor
+                    <span class="menu-icon">
 
-</a>
+                        <i class="bi bi-geo-alt-fill"></i>
 
-</li>
+                    </span>
 
+                    <span>
+                        Blood Camps
+                    </span>
 
+                </a>
 
+            </li>
 
-</ul>
+        </ul>
 
 
-</li>
 
+        <!-- =================================================
+             MANAGEMENT
+             ================================================= -->
 
+        <div class="sidebar-section-title">
+            MANAGEMENT
+        </div>
 
 
+        <ul class="sidebar-menu">
 
 
+            <!-- =================================================
+                 EMERGENCY REQUESTS
+                 ================================================= -->
 
+            <li>
 
-<!-- Blood Request -->
+                <a
+                    href="<?php echo $admin_base; ?>blood_request/emergency_request.php"
+                    class="<?php echo $is_emergency_page ? 'active' : ''; ?>"
+                >
 
+                    <span class="menu-icon emergency-icon">
 
-<li>
+                        <i class="bi bi-exclamation-triangle-fill"></i>
 
-<a
-href="../admin/blood_request/request_list.php">
+                    </span>
 
-<i class="bi bi-droplet-fill"></i>
+                    <span>
+                        Emergency Requests
+                    </span>
 
-<span>
+                    <span class="menu-count danger-count">
+                        05
+                    </span>
 
-Blood Request
+                </a>
 
-</span>
+            </li>
 
 
-<span class="badge">
 
-12
+            <!-- =================================================
+                 NOTIFICATIONS
+                 ================================================= -->
 
-</span>
+            <li>
 
-</a>
+                <a
+                    href="<?php echo $admin_base; ?>notification/notification.php"
+                    class="<?php echo $is_notification_page ? 'active' : ''; ?>"
+                >
 
-</li>
+                    <span class="menu-icon">
 
+                        <i class="bi bi-bell-fill"></i>
 
+                    </span>
 
+                    <span>
+                        Notifications
+                    </span>
 
+                    <span class="menu-count">
+                        12
+                    </span>
 
+                </a>
 
+            </li>
 
 
-<!-- Appointment -->
 
+            <!-- =================================================
+                 REPORTS
+                 ================================================= -->
 
-<li>
+            <li>
 
-<a
-href="../admin/appointment/appointment_list.php">
+                <a href="#">
 
-<i class="bi bi-calendar-check-fill"></i>
+                    <span class="menu-icon">
 
-<span>
+                        <i class="bi bi-bar-chart-fill"></i>
 
-Appointment
+                    </span>
 
-</span>
+                    <span>
+                        Reports
+                    </span>
 
-</a>
+                    <span class="menu-arrow">
 
-</li>
+                        <i class="bi bi-chevron-right"></i>
 
+                    </span>
 
+                </a>
 
+            </li>
 
 
 
+            <!-- =================================================
+                 SETTINGS
+                 ================================================= -->
 
+            <li>
 
-<!-- Blood Stock -->
+                <a href="#">
 
+                    <span class="menu-icon">
 
-<li>
+                        <i class="bi bi-gear-fill"></i>
 
-<a
-href="../admin/stock/blood_stock.php">
+                    </span>
 
-<i class="bi bi-box-seam-fill"></i>
+                    <span>
+                        Settings
+                    </span>
 
-<span>
+                    <span class="menu-arrow">
 
-Blood Stock
+                        <i class="bi bi-chevron-right"></i>
 
-</span>
+                    </span>
 
-</a>
+                </a>
 
-</li>
+            </li>
 
+        </ul>
 
+    </nav>
 
 
 
+    <!-- =====================================================
+         SIDEBAR FOOTER
+         ===================================================== -->
 
+    <div class="sidebar-footer">
 
 
-<!-- Camp -->
+        <!-- HELP -->
 
+        <div class="sidebar-help">
 
-<li>
+            <div class="help-icon">
 
-<a
-href="../admin/camp/blood_camp.php">
+                <i class="bi bi-headset"></i>
 
-<i class="bi bi-hospital-fill"></i>
+            </div>
 
-<span>
+            <div>
 
-Blood Camp
+                <strong>
+                    Need Help?
+                </strong>
 
-</span>
+                <span>
+                    Contact support
+                </span>
 
-</a>
+            </div>
 
-</li>
+            <i class="bi bi-arrow-up-right"></i>
 
+        </div>
 
 
+        <div style="height: 10px;"></div>
 
 
+        <!-- LOGOUT -->
 
+        <a
+            href="<?php echo $root_base; ?>logout.php"
+            class="sidebar-menu logout-link"
+            style="min-height: 36px;"
+        >
 
+            <span class="menu-icon">
 
-<!-- Notification -->
+                <i class="bi bi-box-arrow-right"></i>
 
+            </span>
 
-<li>
+            <span>
+                Logout
+            </span>
 
-<a
-href="../admin/notification/notification.php">
+        </a>
 
-<i class="bi bi-bell-fill"></i>
+    </div>
 
-<span>
+</aside>
 
-Notification
 
-</span>
 
+<!-- =========================================================
+     MOBILE OVERLAY
+     ========================================================= -->
 
-<span class="badge">
-
-5
-
-</span>
-
-</a>
-
-</li>
-
-
-
-
-
-
-
-</ul>
-
-
-
-
-
-
-
-<!-- LOGOUT -->
-
-
-<div class="logout">
-
-
-<a href="../logout.php">
-
-
-<i class="bi bi-box-arrow-right"></i>
-
-<span>
-
-Logout
-
-</span>
-
-
-</a>
-
-
-</div>
-
-
-
-
-
-
-</div>
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
